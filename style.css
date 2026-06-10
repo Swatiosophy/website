@@ -34,32 +34,23 @@ ul { list-style: none; }
 .skip-link:focus { left: 16px; }
 
 /* ============================================================
-   NAV — no logo image, no gap in "Swatiosophy"
+   NAV
    ============================================================ */
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); transition: background 0.4s, box-shadow 0.4s; }
 .nav.is-scrolled { background: rgba(26,10,20,0.97); box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
 .nav__inner { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad-x); height: 100%; display: flex; align-items: center; justify-content: space-between; }
 
-/* Key fix: no gap, no flex, just inline text */
 .nav__logo {
   font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 400;
   color: var(--ivory);
   letter-spacing: 0.02em;
-  line-height: 1;
-  /* Prevent any word-break or gap */
   white-space: nowrap;
+  /* inline so no flex gap splits the word */
   display: inline;
 }
-.nav__logo em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  color: var(--gold);
-  /* No margin or padding that could create a gap */
-  margin: 0;
-  padding: 0;
-}
+.nav__logo em { font-family: var(--font-serif); font-style: italic; color: var(--gold); margin: 0; padding: 0; }
 
 .nav__links { display: flex; gap: 36px; align-items: center; }
 .nav__links a { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ivory); opacity: 0.85; transition: color 0.2s, opacity 0.2s; }
@@ -111,7 +102,7 @@ ul { list-style: none; }
 @keyframes scrollPulse { 0%,100%{opacity:0.3;transform:scaleY(1);} 50%{opacity:0.9;transform:scaleY(1.2);} }
 
 /* ============================================================
-   MARQUEE STRIP — italic serif font, small round dots only
+   MARQUEE STRIP — Cormorant italic, visible round dots
    ============================================================ */
 .strip {
   overflow: hidden;
@@ -123,7 +114,6 @@ ul { list-style: none; }
 }
 .strip__inner { display: inline-block; animation: marquee 40s linear infinite; }
 
-/* Script/italic Cormorant for the words */
 .strip__item {
   font-family: var(--font-serif);
   font-style: italic;
@@ -131,36 +121,45 @@ ul { list-style: none; }
   font-weight: 400;
   letter-spacing: 0.06em;
   color: var(--gold);
-  padding: 0 16px;
+  padding: 0 8px;
 }
 
-/* Small round dot separator — NOT a diamond character */
+/* Round dot — rendered as a visible inline element */
 .strip__dot {
   display: inline-block;
-  width: 4px;
-  height: 4px;
-  background: var(--gold);
+  width: 5px;
+  height: 5px;
+  background: rgba(212, 168, 75, 0.6);
   border-radius: 50%;
   vertical-align: middle;
-  opacity: 0.5;
-  /* No text content — it's a visual shape */
+  margin: 0 6px;
+  position: relative;
+  top: -1px;
 }
 
 @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
 /* ============================================================
-   SECTION DIVIDER — glowing rose, pink+gold glow, soft edges
+   SECTION DIVIDER — pink to gold glow, no black
    ============================================================ */
 .sec-divider {
   width: 100%;
   height: 18px;
-  background: linear-gradient(to right, var(--rose) 40%, #c47a3a 100%);
+  /* Pink centre fading to gold at edges — no black */
+  background: linear-gradient(
+    to right,
+    var(--gold) 0%,
+    var(--rose) 30%,
+    var(--rose) 70%,
+    var(--gold) 100%
+  );
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  /* Pink + gold glow */
   box-shadow:
-    0 -10px 28px rgba(212, 168, 75, 0.22),
-    0  10px 28px rgba(212, 168, 75, 0.22),
-    0   0   40px rgba(196, 96, 122, 0.3);
+    0 -10px 30px rgba(212, 168, 75, 0.25),
+    0  10px 30px rgba(212, 168, 75, 0.25),
+    0   0   50px rgba(196,  96, 122, 0.3);
   position: relative;
   z-index: 1;
 }
@@ -186,11 +185,14 @@ ul { list-style: none; }
 .sec-split__img--bg-parchment  { background: var(--parchment); }
 .sec-split__img--bg-philosophy { background: var(--philosophy-bg); }
 
-/* Image variants */
+/* Image positioning */
 .sec-split__img--face img { object-fit: cover; object-position: center 15%; }
 
-/* About — zoomed out slightly so more of the photo shows */
-.sec-split__img--body img { object-fit: cover; object-position: center 45%; }
+/* About — zoomed out, slightly higher focal point */
+.sec-split__img--body img { object-fit: cover; object-position: center 35%; }
+
+/* About section taller on desktop to show more photo */
+.sec-about { min-height: 110vh; }
 
 /* ============================================================
    RETREATS
@@ -203,28 +205,28 @@ ul { list-style: none; }
 .sec-fullwidth__text--right { right: var(--pad-x); left: auto; text-align: left; }
 
 /* ============================================================
-   CONNECT SECTION — full-width, centered, twilight glow
+   CONNECT — full-width centered, deep twilight glow
    ============================================================ */
 .sec-contact {
   position: relative;
   width: 100%;
-  padding: clamp(80px, 12vh, 130px) var(--pad-x);
+  padding: clamp(90px, 13vh, 140px) var(--pad-x);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  /* Deep twilight radial gradient — glows from center */
+  /* Layered radial gradients create the central glow effect */
   background:
-    radial-gradient(ellipse 70% 80% at 50% 50%,
-      rgba(120, 40, 80, 0.65) 0%,
-      rgba(80, 20, 55, 0.5) 30%,
-      transparent 70%
+    radial-gradient(ellipse 60% 70% at 50% 50%,
+      rgba(140, 50, 95,  0.7) 0%,
+      rgba(100, 25, 65,  0.5) 35%,
+      transparent            70%
     ),
     radial-gradient(ellipse 100% 100% at 50% 50%,
       #3e1030 0%,
-      #2b0b22 40%,
-      #1c0717 70%,
+      #2b0b22 45%,
+      #1c0717 75%,
       #120514 100%
     );
 }
@@ -232,29 +234,32 @@ ul { list-style: none; }
 .sec-contact__inner {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 760px;
   width: 100%;
 }
 
-/* Larger title in connect */
+/* Larger connect title */
 .contact-title {
-  font-size: clamp(2.4rem, 4.5vw, 4rem) !important;
+  font-size: clamp(2.6rem, 4.5vw, 4.2rem) !important;
+  margin-bottom: 20px;
 }
 
-/* Slightly larger body text in connect */
+/* Larger connect body */
 .contact-body {
-  font-size: clamp(1rem, 1.3vw, 1.2rem) !important;
-  max-width: 560px;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem) !important;
+  max-width: 580px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 28px;
 }
 
 .sec-contact .contact-links {
-  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 16px;
+  margin-top: 36px;
 }
 
 /* ============================================================
@@ -265,18 +270,17 @@ ul { list-style: none; }
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  gap: 0;
   row-gap: 12px;
   margin-top: 24px;
 }
 
-/* Center tags in contact section */
+/* Center tags inside contact */
 .sec-contact .tags { justify-content: center; }
 
 .tag {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.03em;
   color: rgba(212, 168, 75, 0.85);
@@ -284,9 +288,10 @@ ul { list-style: none; }
   border: none;
   background: transparent;
   cursor: default;
+  white-space: nowrap;
 }
 
-/* Gold ◆ diamond between each tag */
+/* Gold ◆ diamond separator */
 .tag + .tag::before {
   content: '◆';
   display: inline-block;
@@ -319,34 +324,48 @@ ul { list-style: none; }
 .footer { background: #0e0509; padding: 60px var(--pad-x) 40px; }
 .footer__inner { max-width: 1400px; margin: 0 auto; }
 .footer__top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(201,169,110,0.15); margin-bottom: 40px; }
-.footer__logo { font-family: var(--font-display); font-size: 1.4rem; color: var(--ivory); margin-bottom: 6px; }
+.footer__logo { font-family: var(--font-display); font-size: 1.4rem; color: var(--ivory); margin-bottom: 6px; display: block; }
 .footer__logo em { font-family: var(--font-serif); font-style: italic; color: var(--gold); }
 .footer__tagline { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(248,244,237,0.45); }
 .footer__nav { display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; }
 .footer__nav a { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: rgba(248,244,237,0.55); transition: color 0.2s; }
 .footer__nav a:hover { color: var(--gold); }
 
-/* Disclaimer row — two columns side by side */
-.footer__disclaimer-row {
+/* Logo + disclaimer + credits row */
+.footer__bottom-row {
   display: flex;
-  gap: 48px;
   align-items: flex-start;
+  gap: 32px;
   margin-bottom: 32px;
-  flex-wrap: wrap;
 }
-.footer__disclaimer {
+
+/* Logo to the left of text on desktop */
+.footer__logo-img {
+  width: 80px;
+  height: auto;
+  flex-shrink: 0;
+  mix-blend-mode: screen;
+  opacity: 0.82;
+}
+
+.footer__bottom-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   flex: 1;
-  min-width: 240px;
+}
+
+.footer__disclaimer {
   font-size: 0.9rem;
   line-height: 1.75;
   color: rgba(248,244,237,0.5);
 }
+
+/* Photo credits — italic, smaller */
 .footer__photo-credits {
-  flex: 1;
-  min-width: 240px;
-  font-size: 0.9rem;
-  line-height: 1.75;
-  color: rgba(248,244,237,0.4);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: rgba(248,244,237,0.38);
   font-style: italic;
 }
 
@@ -364,51 +383,45 @@ ul { list-style: none; }
 @media (max-width: 900px) {
 
   .sec-split { flex-direction: column; min-height: auto; }
+  .sec-about { min-height: auto; }
 
-  /* Default image height */
+  /* Default image panel */
   .sec-split__img { flex: none; width: 100%; height: 75vw; min-height: 300px; max-height: 420px; }
   .sec-split__img img { object-position: center center; }
   .sec-split__img--face img { object-position: center 20%; }
 
-  /* Practice — taller, focal point top for the raised hand */
+  /* Practice */
   #practice .sec-split__img { height: 95vw; min-height: 380px; max-height: none; }
   #practice .sec-split__img img { object-position: center top; }
 
-  /* About — taller + shifted up so feet are visible */
-  #about .sec-split__img { height: 120vw; min-height: 460px; max-height: none; }
-  #about .sec-split__img img { object-position: center 20%; }
+  /* About — tall enough to show sitting woman with long legs, face is focus */
+  #about .sec-split__img { height: 130vw; min-height: 500px; max-height: none; }
+  #about .sec-split__img img { object-position: center 38%; }
 
   .sec-split__text { flex: none; width: 100%; padding: 48px 28px; }
   .sec-split--reverse .sec-split__text { order: 2; }
   .sec-split--reverse .sec-split__img  { order: 1; }
 
-  /* RETREATS on mobile — image fills full width, no color bars */
+  /* Retreats — image full width, no color bars, text below on philosophy bg */
   .sec-fullwidth { height: auto; display: flex; flex-direction: column; }
   .sec-fullwidth__img {
-    position: relative;
-    width: 100%;
-    height: 70vw;
-    min-height: 300px;
-    object-fit: cover;
-    object-position: center 30%;
+    position: relative; width: 100%; height: 70vw; min-height: 300px;
+    object-fit: cover; object-position: center 30%;
   }
   .sec-fullwidth__overlay { display: none; }
   .sec-fullwidth__text {
-    position: relative; top: auto; left: auto; right: auto;
-    transform: none; max-width: 100%; width: 100%;
-    background: var(--philosophy-bg);
+    position: relative; top: auto; left: auto; right: auto; transform: none;
+    max-width: 100%; width: 100%; background: var(--philosophy-bg);
     padding: 48px 28px; text-align: left;
   }
-  .sec-fullwidth__text--right { right: auto; left: auto; }
 
-  /* Connect on mobile — full width, larger text */
-  .sec-contact { padding: 60px 28px; text-align: center; }
-  .contact-title { font-size: clamp(2rem, 8vw, 3rem) !important; }
-  .contact-body  { font-size: 1rem !important; }
-  .sec-contact .contact-links { flex-direction: column; align-items: stretch; }
+  /* Connect — full width centered, good font sizes */
+  .sec-contact { padding: 64px 28px; }
+  .contact-title { font-size: clamp(2.2rem, 8vw, 3.2rem) !important; }
+  .contact-body  { font-size: 1.05rem !important; }
+  .sec-contact .contact-links { flex-direction: column; align-items: stretch; margin-top: 28px; }
   .sec-contact .contact-links .btn { text-align: center; }
-  .sec-contact .tags { justify-content: center; }
-  .tag { font-size: 0.95rem; }
+  .tag { font-size: 1rem; }
 
   /* Nav */
   .nav__links { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: rgba(26,10,20,0.98); flex-direction: column; gap: 0; padding: 16px 0 32px; }
@@ -426,11 +439,13 @@ ul { list-style: none; }
   /* Pillars */
   .pillars { grid-template-columns: 1fr 1fr; gap: 12px; }
 
-  /* Footer */
+  /* Footer — logo above text on mobile */
   .footer__top { flex-direction: column; }
   .footer__nav { gap: 14px 24px; }
-  .footer__disclaimer-row { flex-direction: column; gap: 24px; }
-  .footer__photo-credits { font-size: 0.82rem; }
+  .footer__bottom-row { flex-direction: column; align-items: center; gap: 20px; }
+  .footer__logo-img { width: 70px; }
+  .footer__bottom-text { text-align: center; }
+  .footer__photo-credits { font-size: 0.75rem; }
 }
 
 @media (max-width: 480px) {
