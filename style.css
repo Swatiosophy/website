@@ -2,25 +2,25 @@
    Custom Properties
    ============================================================ */
 :root {
-  --ivory:     #F8F2E9;
-  --rose:      #B85450;
-  --gold:      #B8860B;
-  --gold-dim:  #A07A09;
-  --parchment: #EDE0D4;
-  --plum:      #3D1C2E;
-  --plum-dark: #2A1020;
-  --plum-mid:  #4E2439;
+  --ivory:      #F8F2E9;
+  --rose:       #B85450;
+  --gold:       #B8860B;
+  --gold-dim:   #A07A09;
+  --parchment:  #EDE0D4;
+  --plum:       #3D1C2E;
+  --plum-dark:  #2A1020;
+  --plum-mid:   #4E2439;
 
   --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
   --font-sans:  'Raleway', system-ui, -apple-system, sans-serif;
 
   /* Glass */
-  --glass-bg-light:  rgba(248, 242, 233, 0.12);
-  --glass-bd-light:  rgba(248, 242, 233, 0.22);
-  --glass-bg-dark:   rgba(61, 28, 46, 0.55);
-  --glass-bd-dark:   rgba(184, 134, 11, 0.28);
-  --blur:            blur(22px);
-  --blur-sm:         blur(10px);
+  --glass-bg-light: rgba(248, 242, 233, 0.12);
+  --glass-bd-light: rgba(248, 242, 233, 0.22);
+  --glass-bg-dark:  rgba(61, 28, 46, 0.55);
+  --glass-bd-dark:  rgba(184, 134, 11, 0.28);
+  --blur:           blur(22px);
+  --blur-sm:        blur(10px);
 
   /* Shadows */
   --shadow-sm: 0 4px 16px rgba(42, 16, 32, 0.15);
@@ -34,8 +34,8 @@
   --r-xl: 48px;
 
   /* Layout */
-  --max-w: 1200px;
-  --pad-x: clamp(20px, 5vw, 64px);
+  --max-w:      1200px;
+  --pad-x:      clamp(20px, 5vw, 64px);
   --section-py: clamp(80px, 10vw, 140px);
 }
 
@@ -69,7 +69,6 @@ img {
 }
 
 a { text-decoration: none; color: inherit; }
-
 ul { list-style: none; }
 
 /* ============================================================
@@ -152,7 +151,8 @@ ul { list-style: none; }
   text-transform: uppercase;
   cursor: pointer;
   border: none;
-  transition: background 200ms ease, transform 200ms ease-out, box-shadow 200ms ease;
+  transition: background 200ms ease, transform 200ms ease-out,
+              box-shadow 200ms ease, color 200ms ease, border-color 200ms ease;
   min-height: 44px;
 }
 
@@ -169,6 +169,19 @@ ul { list-style: none; }
 }
 
 .btn--gold:active { transform: translateY(0); }
+
+.btn--outline {
+  background: transparent;
+  color: rgba(248, 242, 233, 0.82);
+  border: 1px solid rgba(248, 242, 233, 0.3);
+}
+
+.btn--outline:hover {
+  background: rgba(248, 242, 233, 0.08);
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
 
 .btn--large { padding: 18px 48px; font-size: 0.875rem; }
 
@@ -193,38 +206,27 @@ ul { list-style: none; }
   font-weight: 500;
   line-height: 1.2;
   color: var(--plum);
-  margin-bottom: 14px;
-}
-
-.section-title--light { color: var(--ivory); }
-
-.section-subtitle {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: var(--rose);
-  letter-spacing: 0.04em;
-  margin-bottom: 40px;
-}
-
-.section-subtitle--muted {
-  color: rgba(237, 224, 212, 0.65);
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.body-text {
-  font-family: var(--font-sans);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--plum);
-  max-width: 58ch;
   margin-bottom: 20px;
 }
 
-.body-text--light { color: rgba(237, 224, 212, 0.88); }
+.section-title em {
+  font-style: italic;
+  color: var(--rose);
+}
+
+.section-title--light { color: var(--ivory); }
+.section-title--light em { color: var(--gold); }
+
+.body-text {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--plum);
+  max-width: 60ch;
+  margin-bottom: 20px;
+}
+
+.body-text--light { color: rgba(237, 224, 212, 0.82); }
 
 /* ============================================================
    Float Tags
@@ -268,7 +270,7 @@ ul { list-style: none; }
 }
 
 .nav.is-scrolled {
-  background: rgba(42, 16, 32, 0.82);
+  background: rgba(42, 16, 32, 0.88);
   backdrop-filter: var(--blur);
   -webkit-backdrop-filter: var(--blur);
   border-bottom-color: rgba(184, 134, 11, 0.18);
@@ -313,7 +315,7 @@ ul { list-style: none; }
 .nav__links a:hover { color: var(--gold); }
 
 .nav__cta {
-  padding: 8px 20px;
+  padding: 8px 20px !important;
   border-radius: 50px;
   background: rgba(184, 134, 11, 0.18) !important;
   border: 1px solid rgba(184, 134, 11, 0.45);
@@ -356,109 +358,109 @@ ul { list-style: none; }
 .nav__toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ============================================================
-   Hero
+   Hero — SPLIT LAYOUT
+   Left panel: text on dark background
+   Right panel: full image, object-fit: contain (no cropping)
    ============================================================ */
 .hero {
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   min-height: 100dvh;
+  position: relative;
+  background: var(--plum-dark);
+}
+
+/* ── Left text panel ── */
+.hero__text-panel {
   display: flex;
-  align-items: center;
-  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px var(--pad-x) 80px;
+  background: linear-gradient(135deg, var(--plum-dark) 0%, var(--plum) 100%);
+  position: relative;
+  z-index: 1;
 }
 
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.hero__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
-  filter: brightness(0.55) saturate(0.75);
-}
-
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    150deg,
-    rgba(42, 16, 32, 0.88) 0%,
-    rgba(61, 28, 46, 0.62) 45%,
-    rgba(42, 16, 32, 0.35) 100%
-  );
-}
-
-/* Subtle grid overlay for the "floating grid" aesthetic */
-.hero__grid-pattern {
+/* Subtle grid pattern on left panel */
+.hero__text-panel::before {
+  content: '';
   position: absolute;
   inset: 0;
   background-image:
     linear-gradient(rgba(184, 134, 11, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(184, 134, 11, 0.04) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at 30% 60%, black 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at 30% 60%, black 30%, transparent 75%);
+  background-size: 48px 48px;
+  pointer-events: none;
 }
 
-.hero__content {
+.hero__text-inner {
   position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 120px var(--pad-x) 80px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.hero__card {
-  max-width: 580px;
-  background: rgba(42, 16, 32, 0.52);
-  border-color: rgba(184, 134, 11, 0.3);
-  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(248, 242, 233, 0.08);
+  max-width: 480px;
 }
 
 .hero__title {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-size: clamp(2.8rem, 5.5vw, 4.4rem);
   font-weight: 600;
   line-height: 1.05;
   color: var(--ivory);
   letter-spacing: -0.02em;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
-.hero__subtitle {
-  font-family: var(--font-sans);
-  font-size: clamp(0.85rem, 2vw, 1.1rem);
-  font-weight: 300;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--parchment);
-  margin-bottom: 20px;
+.hero__title em {
+  color: var(--gold);
 }
 
 .hero__tagline {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-  line-height: 1.65;
-  color: rgba(237, 224, 212, 0.65);
-  margin-bottom: 32px;
+  line-height: 1.75;
+  color: rgba(237, 224, 212, 0.68);
+  margin-bottom: 36px;
+  max-width: 42ch;
 }
 
-/* Scroll hint */
+/* ── Right image panel ── */
+.hero__img-panel {
+  position: relative;
+  background: var(--plum-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Subtle gradient on inner edge to blend with text panel */
+.hero__img-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: 0;
+  width: 80px;
+  background: linear-gradient(to right, var(--plum), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero__img {
+  /* object-fit: contain shows the FULL image with no cropping */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  max-height: 100dvh;
+}
+
+/* Scroll hint (centered, absolute at bottom) */
 .hero__scroll-hint {
   position: absolute;
   bottom: 36px;
-  left: 50%;
+  left: 25%; /* centered over left (text) panel */
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -484,6 +486,49 @@ ul { list-style: none; }
 }
 
 /* ============================================================
+   Philosophy Strip (Marquee)
+   ============================================================ */
+.strip {
+  background: var(--plum);
+  padding: 18px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid rgba(184, 134, 11, 0.15);
+  border-bottom: 1px solid rgba(184, 134, 11, 0.15);
+}
+
+.strip__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  animation: marquee 32s linear infinite;
+  padding-right: 40px;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.strip__item {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold);
+  opacity: 0.72;
+  flex-shrink: 0;
+}
+
+.strip__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--rose);
+  opacity: 0.45;
+  flex-shrink: 0;
+}
+
+/* ============================================================
    Practice Section
    ============================================================ */
 .practice {
@@ -492,7 +537,6 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
-/* Subtle radial glow top-right */
 .practice::after {
   content: '';
   position: absolute;
@@ -524,7 +568,6 @@ ul { list-style: none; }
   box-shadow: var(--shadow-lg);
 }
 
-/* Floating gold accent box behind the image */
 .practice__img-float-accent {
   position: absolute;
   bottom: -24px;
@@ -577,6 +620,7 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
+  margin-top: 32px;
 }
 
 .pillar {
@@ -590,7 +634,8 @@ ul { list-style: none; }
   border-radius: var(--r-sm);
   text-align: center;
   cursor: default;
-  transition: background 250ms ease, border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+  transition: background 250ms ease, border-color 250ms ease,
+              transform 250ms ease, box-shadow 250ms ease;
 }
 
 .pillar:hover {
@@ -626,7 +671,6 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
-/* Background orbs */
 .philosophy__orb {
   position: absolute;
   border-radius: 50%;
@@ -658,8 +702,6 @@ ul { list-style: none; }
   align-items: start;
 }
 
-.philosophy__main .body-text { max-width: 55ch; }
-
 .services-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -686,14 +728,14 @@ ul { list-style: none; }
   color: rgba(237, 224, 212, 0.7);
 }
 
-/* Quote */
+/* Philosophy quote (in aside) */
 .philosophy__quote {
   background: rgba(61, 28, 46, 0.5);
   border-color: rgba(184, 134, 11, 0.3);
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-  line-height: 1.7;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.75;
   color: var(--ivory);
   text-align: center;
   padding: 44px 36px;
@@ -709,60 +751,67 @@ ul { list-style: none; }
   color: var(--gold);
   margin-top: 20px;
   display: block;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
-.philosophy__aside .float-tags { justify-content: center; }
-
 /* ============================================================
-   Retreats Section
+   Retreats — SPLIT LAYOUT
+   Left panel: full image, object-fit: contain (no cropping)
+   Right panel: text on dark background
    ============================================================ */
 .retreats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 85dvh;
+  background: var(--plum-dark);
+}
+
+/* ── Left image panel ── */
+.retreats__img-panel {
   position: relative;
-  min-height: 100dvh;
+  background: var(--plum-dark);
   display: flex;
   align-items: center;
-  padding: 0;
+  justify-content: center;
   overflow: hidden;
 }
 
-.retreats__bg {
+/* Subtle gradient on inner edge to blend with text panel */
+.retreats__img-panel::after {
+  content: '';
   position: absolute;
   inset: 0;
-  z-index: 0;
+  right: 0;
+  width: 80px;
+  left: auto;
+  background: linear-gradient(to left, var(--plum), transparent);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .retreats__img {
+  /* object-fit: contain shows the FULL image with no cropping */
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
+  object-fit: contain;
+  object-position: center;
+  max-height: 85dvh;
 }
 
-.retreats__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(42, 16, 32, 0.9) 0%,
-    rgba(42, 16, 32, 0.65) 55%,
-    rgba(42, 16, 32, 0.2) 100%
-  );
-}
-
-.retreats__content {
-  position: relative;
-  z-index: 1;
-  padding-top: 100px;
-  padding-bottom: 100px;
+/* ── Right text panel ── */
+.retreats__text-panel {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px var(--pad-x);
+  background: linear-gradient(135deg, var(--plum) 0%, var(--plum-dark) 100%);
+  position: relative;
 }
 
-.retreats__card {
-  max-width: 560px;
-  background: rgba(42, 16, 32, 0.6);
-  border-color: rgba(184, 134, 11, 0.32);
-  box-shadow: var(--shadow-lg);
+.retreats__text-inner {
+  max-width: 480px;
 }
 
 .retreats__title {
@@ -881,7 +930,7 @@ ul { list-style: none; }
 
 .contact__inner {
   position: relative;
-  max-width: 640px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -889,6 +938,15 @@ ul { list-style: none; }
   max-width: 52ch;
   margin: 0 auto 36px;
   text-align: center;
+}
+
+/* Email + Instagram buttons */
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
 .contact__tags {
@@ -976,8 +1034,10 @@ ul { list-style: none; }
               transform 750ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.reveal[data-delay="100"] { transition-delay: 100ms; }
 .reveal[data-delay="150"] { transition-delay: 150ms; }
 .reveal[data-delay="200"] { transition-delay: 200ms; }
+.reveal[data-delay="250"] { transition-delay: 250ms; }
 
 .reveal.is-visible {
   opacity: 1;
@@ -991,13 +1051,40 @@ ul { list-style: none; }
     transition: none;
   }
   .hero__scroll-line { animation: none; }
+  .strip__inner { animation: none; }
   @keyframes scrollPulse {}
+  @keyframes marquee {}
 }
 
 /* ============================================================
    Responsive — Tablet (≤1024px)
    ============================================================ */
 @media (max-width: 1024px) {
+
+  /* Hero: stack vertically on tablet */
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .hero__text-panel {
+    padding: 120px var(--pad-x) 48px;
+    min-height: 60dvh;
+  }
+
+  .hero__img-panel {
+    min-height: 50dvh;
+  }
+
+  .hero__img {
+    max-height: 50dvh;
+  }
+
+  .hero__scroll-hint {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .practice__grid {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -1008,6 +1095,25 @@ ul { list-style: none; }
   .philosophy__grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  /* Retreats: stack vertically on tablet */
+  .retreats {
+    grid-template-columns: 1fr;
+  }
+
+  .retreats__img-panel {
+    min-height: 50dvh;
+  }
+
+  .retreats__img {
+    max-height: 50dvh;
+  }
+
+  .retreats__img-panel::after { display: none; }
+
+  .retreats__text-panel {
+    padding: 64px var(--pad-x);
   }
 
   .about__grid {
@@ -1032,6 +1138,8 @@ ul { list-style: none; }
    Responsive — Mobile (≤768px)
    ============================================================ */
 @media (max-width: 768px) {
+
+  /* Mobile nav drawer */
   .nav__links {
     display: none;
     position: fixed;
@@ -1055,6 +1163,14 @@ ul { list-style: none; }
 
   .nav__toggle { display: flex; position: relative; z-index: 100; }
 
+  .hero__text-panel {
+    padding: 100px var(--pad-x) 40px;
+    min-height: 55dvh;
+  }
+
+  .hero__img-panel { min-height: 40dvh; }
+  .hero__img { max-height: 40dvh; }
+
   .services-grid { grid-template-columns: 1fr; }
 
   .pillars { grid-template-columns: repeat(2, 1fr); }
@@ -1062,6 +1178,11 @@ ul { list-style: none; }
   .about__img-wrap { max-width: 100%; }
 
   .footer__nav { gap: 16px; }
+
+  .contact__links {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* ============================================================
@@ -1082,9 +1203,8 @@ ul { list-style: none; }
     height: 180px;
   }
 
-  .contact .btn--large {
+  .btn--large {
     padding: 16px 28px;
     font-size: 0.78rem;
-    word-break: break-all;
   }
 }
