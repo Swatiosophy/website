@@ -28,7 +28,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* native smooth scroll — no Lenis needed */
   font-size: 16px;
 }
 
@@ -351,6 +351,15 @@ ul { list-style: none; }
 }
 
 /* ============================================================
+   SECTION DIVIDER BAR
+   ============================================================ */
+.sec-divider {
+  width: 100%;
+  height: 18px;
+  background: var(--rose);
+}
+
+/* ============================================================
    SECTIONS 2, 3, 4, 6 — SPLIT HALF-SCREEN
    Uses display:flex with two 50% children.
    Images use position:absolute inset:0 to fill panels.
@@ -404,10 +413,22 @@ ul { list-style: none; }
 .sec-split--reverse .sec-split__text { order: 1; }
 .sec-split--reverse .sec-split__img  { order: 2; }
 
-/* Background color variants */
+/* Background color variants for text panels */
 .bg-dark     { background: var(--plum-dark); }
 .bg-parchment{ background: var(--parchment); }
 .bg-plum     { background: var(--plum); }
+
+/* Portrait image variant — shows the full photo without cropping.
+   Use for iPhone/Instagram portrait photos (sections 3, 4, 6). */
+.sec-split__img--portrait img {
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* Background behind the portrait image — matches the adjacent panel */
+.sec-split__img--bg-dark      { background: var(--plum-dark); }
+.sec-split__img--bg-parchment { background: var(--parchment); }
+.sec-split__img--bg-plum      { background: var(--plum); }
 
 /* ============================================================
    SECTION 5 — RETREATS
