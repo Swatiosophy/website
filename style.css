@@ -15,8 +15,10 @@
   --parchment:  #f2ece0;
   --charcoal:   #2d2d2d;
 
-  --font-serif:  'Lora', Georgia, serif;
-  --font-sans:   'Raleway', system-ui, sans-serif;
+  --font-serif:    'Cormorant Garamond', Georgia, serif;
+  --font-display:  'IM Fell English', Georgia, serif;
+  --font-cinzel:   'Cinzel', serif;
+  --font-sans:     'Raleway', system-ui, sans-serif;
 
   --pad-x:      clamp(32px, 6vw, 80px);
   --pad-y:      clamp(60px, 8vh, 100px);
@@ -264,22 +266,36 @@ ul { list-style: none; }
 }
 
 .hero-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display); /* IM Fell English — distressed old-style serif */
   font-size: clamp(3.2rem, 6vw, 6rem);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--ivory);
   line-height: 1.05;
   margin-bottom: 20px;
 }
-.hero-title em { font-style: italic; color: var(--gold); }
+/* "osophy" — elegant Cormorant Garamond italic */
+.hero-title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--gold);
+}
 
 .hero-tagline {
-  font-family: var(--font-sans);
-  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  font-family: var(--font-serif); /* Cormorant Garamond italic */
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
   font-weight: 300;
   color: rgba(248,244,237,0.82);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-bottom: 36px;
+}
+
+/* "Self Discovery through Yoga" eyebrow uses Cinzel */
+.sec-hero .eyebrow {
+  font-family: var(--font-cinzel);
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
 }
 
 /* Scroll indicator */
@@ -419,14 +435,25 @@ ul { list-style: none; }
 .bg-parchment{ background: var(--parchment); }
 .bg-plum     { background: var(--plum); }
 
-/* Portrait image variant — shows the full photo without cropping.
-   Use for iPhone/Instagram portrait photos (sections 3, 4, 6). */
+/* Portrait image variant — shows the full photo without cropping (§6) */
 .sec-split__img--portrait img {
   object-fit: contain;
   object-position: center center;
 }
 
-/* Background behind the portrait image — matches the adjacent panel */
+/* §3 Philosophy — crop to face, focus on upper portion */
+.sec-split__img--face img {
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+/* §4 About — show full body, center crop */
+.sec-split__img--body img {
+  object-fit: cover;
+  object-position: center 10%;
+}
+
+/* Background behind the image — matches the adjacent panel */
 .sec-split__img--bg-dark      { background: var(--plum-dark); }
 .sec-split__img--bg-parchment { background: var(--parchment); }
 .sec-split__img--bg-plum      { background: var(--plum); }
