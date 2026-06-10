@@ -699,9 +699,21 @@ ul { list-style: none; }
   .sec-split__img {
     flex: none;
     width: 100%;
-    height: 55vw;
-    min-height: 240px;
-    /* position:relative already set above — img inside is absolute */
+    height: 75vw;
+    min-height: 300px;
+    max-height: 420px;
+  }
+
+  .sec-split__img img {
+    object-position: center center;
+  }
+
+  .sec-split__img--face img {
+    object-position: center 20%;
+  }
+
+  .sec-split__img--body img {
+    object-position: center 40%;
   }
 
   .sec-split__text {
@@ -773,6 +785,10 @@ ul { list-style: none; }
     max-width: 100%;
   }
 
+  .sec-hero__img {
+    object-position: 70% center;
+  }
+
   .sec-hero__overlay {
     background: rgba(26,10,20,0.65);
   }
@@ -799,6 +815,17 @@ ul { list-style: none; }
 
   .footer__nav {
     gap: 14px 24px;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 901px) {
+  .sec-hero__img {
+    object-position: 65% center;
+  }
+
+  .sec-split__img img {
+    object-fit: contain;
+    object-position: center center;
   }
 }
 
