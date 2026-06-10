@@ -17,7 +17,10 @@
   <!-- NAV -->
   <nav id="nav" class="nav" aria-label="Main navigation">
     <div class="nav__inner">
-      <a class="nav__logo" href="#hero"><span>Swati</span><em>osophy</em></a>
+      <a class="nav__logo" href="#hero">
+        <img src="images/logo-transparent.png" alt="Swatiosophy logo" class="nav__logo-img">
+        <span>Swati</span><em>osophy</em>
+      </a>
       <ul class="nav__links" id="navLinks">
         <li><a href="#practice">Practice</a></li>
         <li><a href="#philosophy">Philosophy</a></li>
@@ -31,10 +34,7 @@
     </div>
   </nav>
 
-  <!-- =====================================================
-       SECTION 1 — HERO
-       Full-width · hero.jpg · Text overlay LEFT
-  ===================================================== -->
+  <!-- HERO -->
   <section id="hero" class="sec-hero">
     <img class="sec-hero__img" src="images/hero.jpg" alt="Swati in a yoga pose" />
     <div class="sec-hero__overlay"></div>
@@ -81,14 +81,7 @@
       </div>
     </div>
 
-    <!-- =====================================================
-         SECTION 2 — THE PRACTICE
-         Half-screen · swati-doing-yoga-post-on-rock.jpg
-         Image LEFT · Text RIGHT
-         NOTE: if image still shows broken, check the exact
-         filename in your images/ folder. It may be
-         "swati-doing-yogo-post-on-rock.jpg" (typo "yogo").
-    ===================================================== -->
+    <!-- SECTION 2 — THE PRACTICE -->
     <section id="practice" class="sec-split">
       <div class="sec-split__img">
         <img src="images/swati-doing-yoga-post-on-rock.jpg" alt="Swati in a yoga pose on a rock" loading="lazy" />
@@ -96,7 +89,7 @@
       <div class="sec-split__text bg-parchment">
         <div class="sec-split__inner reveal">
           <p class="eyebrow eyebrow--dark">The Practice</p>
-          <h2 class="section-title dark">Asana as a path<br><em>of Inquiry</em></h2>
+          <h2 class="section-title dark">Asana as a path<br>of <em>Inquiry</em></h2>
           <p class="body-text dark">
             Swati teaches yoga inspired by traditional yoga philosophy, history, and
             cultural immersion, where asana, pranayama, and philosophy are taught as
@@ -127,15 +120,11 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         SECTION 3 — THE PHILOSOPHY
-         Half-screen · swati-face-pic2.jpg
-         Text LEFT · Image RIGHT
-    ===================================================== -->
+    <!-- SECTION 3 — THE PHILOSOPHY -->
     <div class="sec-divider" aria-hidden="true"></div>
 
     <section id="philosophy" class="sec-split sec-split--reverse">
-      <div class="sec-split__text bg-dark">
+      <div class="sec-split__text bg-philosophy">
         <div class="sec-split__inner reveal">
           <p class="eyebrow eyebrow--gold">The Philosophy</p>
           <h2 class="section-title light">Yoga as a map<br><em>of the self</em></h2>
@@ -153,7 +142,7 @@
             teachers and practitioners looking to deepen their practice and connect with
             the source culture.
           </p>
-          <div class="tags">
+          <div class="tags tags--decorative">
             <span class="tag">Ancient Texts</span>
             <span class="tag">Sanskrit</span>
             <span class="tag">Cultural Integrity</span>
@@ -161,16 +150,12 @@
           </div>
         </div>
       </div>
-      <div class="sec-split__img sec-split__img--face sec-split__img--bg-dark">
+      <div class="sec-split__img sec-split__img--face sec-split__img--bg-philosophy">
         <img src="images/swati-face-pic2.jpg" alt="Swati" loading="lazy" />
       </div>
     </section>
 
-    <!-- =====================================================
-         SECTION 4 — ABOUT SWATI
-         Half-screen · about.jpg
-         Image LEFT · Text RIGHT
-    ===================================================== -->
+    <!-- SECTION 4 — ABOUT SWATI -->
     <div class="sec-divider" aria-hidden="true"></div>
 
     <section id="about" class="sec-split">
@@ -200,10 +185,7 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         SECTION 5 — RETREATS
-         Full-width · retreat.jpg · Text overlay RIGHT
-    ===================================================== -->
+    <!-- SECTION 5 — RETREATS -->
     <div class="sec-divider" aria-hidden="true"></div>
 
     <section id="retreats" class="sec-fullwidth">
@@ -227,50 +209,40 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         SECTION 6 — CONNECT
-         Half-screen · music-instrument.jpg
-         Text LEFT · Image RIGHT
-    ===================================================== -->
+    <!-- SECTION 6 — CONNECT -->
     <div class="sec-divider" aria-hidden="true"></div>
 
-    <section id="contact" class="sec-split sec-split--reverse">
-      <div class="sec-split__text bg-plum">
-        <div class="sec-split__inner reveal">
-          <p class="eyebrow eyebrow--gold">Connect</p>
-          <h2 class="section-title light">Begin the<br><em>conversation</em></h2>
-          <p class="body-text light">
-            Whether you're looking to deepen your practice, collaborate on a retreat,
-            or explore mentoring — Swati would love to connect.
-          </p>
-          <div class="contact-links">
-            <a href="mailto:namaste@swatiosophy.com" class="btn btn--gold btn--large">
-              namaste@swatiosophy.com
-            </a>
-            <a href="https://instagram.com/swatiosophy" class="btn btn--outline btn--large"
-               target="_blank" rel="noopener noreferrer">
-              @swatiosophy on Instagram
-            </a>
-          </div>
-          <div class="tags" style="margin-top: 28px;">
-            <span class="tag">Classes</span>
-            <span class="tag">Workshops</span>
-            <span class="tag">YTT Guest Lectures</span>
-            <span class="tag">Retreats</span>
-            <span class="tag">Mentoring</span>
-          </div>
+    <section id="contact" class="sec-contact">
+      <div class="sec-contact__inner reveal">
+        <p class="eyebrow eyebrow--gold">Connect</p>
+        <h2 class="section-title light">Begin the<br><em>conversation</em></h2>
+        <p class="body-text light">
+          Whether you're looking to deepen your practice, collaborate on a retreat,
+          or explore mentoring — Swati would love to connect.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:namaste@swatiosophy.com" class="btn btn--gold btn--large">
+            namaste@swatiosophy.com
+          </a>
+          <a href="https://instagram.com/swatiosophy" class="btn btn--outline btn--large"
+             target="_blank" rel="noopener noreferrer">
+            @swatiosophy on Instagram
+          </a>
         </div>
-      </div>
-      <div class="sec-split__img sec-split__img--portrait sec-split__img--bg-plum">
-        <img src="images/music-instrument.jpg" alt="Sarangi — ancient Indian string instrument" loading="lazy" />
+        <div class="tags tags--decorative" style="margin-top: 28px;">
+          <span class="tag">Classes</span>
+          <span class="tag">Workshops</span>
+          <span class="tag">YTT Guest Lectures</span>
+          <span class="tag">Retreats</span>
+          <span class="tag">Mentoring</span>
+          <span class="tag">Sound Baths &amp; Artist Spas featuring @tapewallah</span>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- =====================================================
-       SECTION 7 — FOOTER / DISCLAIMER (no image)
-  ===================================================== -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__top">
@@ -287,13 +259,16 @@
           <a href="https://instagram.com/swatiosophy" target="_blank" rel="noopener noreferrer">Instagram</a>
         </nav>
       </div>
-      <div class="footer__disclaimer">
-        <p>*Swatiosophy LLC content, including Swati's yoga classes, are for general educational
-        purposes only and do not constitute medical or therapeutic advice. Please consult your own
-        healthcare provider before beginning any new fitness-related or wellness routine and for any
-        questions that may arise during a physical practice. Yoga instruction does not establish a
-        doctor-patient relationship. Always listen to your body and practice within your own limits,
-        honoring what feels right for you.</p>
+      <div class="footer__disclaimer-row">
+        <img src="images/logo-transparent.png" alt="Swatiosophy logo" class="footer__logo-img">
+        <div class="footer__disclaimer">
+          <p>*Swatiosophy LLC content, including Swati's yoga classes, are for general educational
+          purposes only and do not constitute medical or therapeutic advice. Please consult your own
+          healthcare provider before beginning any new fitness-related or wellness routine and for any
+          questions that may arise during a physical practice. Yoga instruction does not establish a
+          doctor-patient relationship. Always listen to your body and practice within your own limits,
+          honoring what feels right for you.</p>
+        </div>
       </div>
       <p class="footer__copy">© 2025 Swatiosophy LLC. All rights reserved.</p>
     </div>
