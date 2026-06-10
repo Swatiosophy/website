@@ -399,7 +399,7 @@ ul { list-style: none; }
 .sec-split {
   display: flex;
   width: 100%;
-  min-height: 75vh;
+  min-height: 90vh;
 }
 
 /* Image panel — 50% wide, relative so the img can be absolute */
@@ -457,10 +457,10 @@ ul { list-style: none; }
   object-position: center 15%;
 }
 
-/* §4 About — show full body, vertically centered */
+/* §4 About — show full body, shifted lower to include feet */
 .sec-split__img--body img {
   object-fit: cover;
-  object-position: center 50%;
+  object-position: center 65%;
 }
 
 /* Background behind the image — matches the adjacent panel */
