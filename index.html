@@ -14,58 +14,48 @@
 
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- ── NAV ─────────────────────────────────────────────── -->
+  <!-- NAV -->
   <nav id="nav" class="nav" aria-label="Main navigation">
     <div class="nav__inner">
       <a class="nav__logo" href="#hero">Swatiosophy</a>
-      <ul class="nav__links" id="navLinks" role="list">
+      <ul class="nav__links" id="navLinks">
         <li><a href="#practice">Practice</a></li>
         <li><a href="#philosophy">Philosophy</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#retreats">Retreats</a></li>
         <li><a href="#contact" class="nav__cta">Connect</a></li>
       </ul>
-      <button
-        class="nav__toggle"
-        id="navToggle"
-        aria-label="Open navigation"
-        aria-expanded="false"
-        aria-controls="navLinks"
-      >
+      <button class="nav__toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- ══════════════════════════════════════════════════════
+  <!-- =====================================================
        SECTION 1 — HERO
-       Full-width image (hero.jpg), text overlay LEFT
-  ══════════════════════════════════════════════════════ -->
-  <section id="hero" class="hero" aria-labelledby="hero-heading">
-    <div class="hero__bg">
-      <img class="hero__img" src="images/hero.jpg" alt="Swati in a yoga pose" />
-      <div class="hero__overlay"></div>
+       Full-width · hero.jpg · Text overlay LEFT
+  ===================================================== -->
+  <section id="hero" class="sec-hero">
+    <img class="sec-hero__img" src="images/hero.jpg" alt="Swati in a yoga pose" />
+    <div class="sec-hero__overlay"></div>
+    <div class="sec-hero__text">
+      <p class="eyebrow eyebrow--gold">Self Discovery through Yoga</p>
+      <h1 class="hero-title">Swati<em>osophy</em></h1>
+      <p class="hero-tagline">
+        The path begins within. Ancient philosophy. Modern exploration.
+        A practice that moves with you — across continents, across lifetimes.
+      </p>
+      <a href="#contact" class="btn btn--gold btn--large">Connect</a>
     </div>
-    <div class="hero__content container">
-      <div class="hero__text-inner reveal">
-        <p class="eyebrow eyebrow--gold">Self Discovery through Yoga</p>
-        <h1 class="hero__title" id="hero-heading">Swati<em>osophy</em></h1>
-        <p class="hero__tagline">
-          The path begins within. Ancient philosophy. Modern exploration.
-          A practice that moves with you — across continents, across lifetimes.
-        </p>
-        <a href="#contact" class="btn btn--gold btn--large">Connect</a>
-      </div>
-    </div>
-    <div class="hero__scroll-hint" aria-hidden="true">
-      <span class="hero__scroll-line"></span>
+    <div class="sec-hero__scroll" aria-hidden="true">
+      <span class="scroll-line"></span>
       <span>Scroll</span>
     </div>
   </section>
 
   <main id="main-content">
 
-    <!-- ── MARQUEE STRIP ────────────────────────────────── -->
+    <!-- MARQUEE STRIP -->
     <div class="strip" aria-hidden="true">
       <div class="strip__inner">
         <span class="strip__item">Svadhyaya</span><span class="strip__dot"></span>
@@ -91,28 +81,23 @@
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════════
+    <!-- =====================================================
          SECTION 2 — THE PRACTICE
-         Half-screen split: Image LEFT / Text RIGHT
-         Image: swati-doing-yoga-post-on-rock.jpg
-    ══════════════════════════════════════════════════ -->
-    <section id="practice" class="practice" aria-labelledby="practice-heading">
-
-      <div class="split__img-panel">
-        <img
-          src="images/swati-doing-yoga-post-on-rock.jpg"
-          alt="Swati in a yoga pose on a rock"
-          loading="lazy"
-        />
+         Half-screen · swati-doing-yoga-post-on-rock.jpg
+         Image LEFT · Text RIGHT
+         NOTE: if image still shows broken, check the exact
+         filename in your images/ folder. It may be
+         "swati-doing-yogo-post-on-rock.jpg" (typo "yogo").
+    ===================================================== -->
+    <section id="practice" class="sec-split">
+      <div class="sec-split__img">
+        <img src="images/swati-doing-yoga-post-on-rock.jpg" alt="Swati in a yoga pose on a rock" loading="lazy" />
       </div>
-
-      <div class="split__text-panel split__text-panel--dark">
-        <div class="split__text-inner reveal">
+      <div class="sec-split__text bg-dark">
+        <div class="sec-split__inner reveal">
           <p class="eyebrow">The Practice</p>
-          <h2 class="section-title section-title--light" id="practice-heading">
-            Asana as a path<br><em>of Inquiry</em>
-          </h2>
-          <p class="body-text body-text--light">
+          <h2 class="section-title light">Asana as a path<br><em>of Inquiry</em></h2>
+          <p class="body-text light">
             Swati teaches yoga inspired by traditional yoga philosophy, history, and
             cultural immersion, where asana, pranayama, and philosophy are taught as
             one inseparable practice. She believes yoga practice is deepened through
@@ -120,49 +105,45 @@
             Her classes include original compositions by Michael Dwan Singh, featuring
             sarangi, an ancient Indian instrument prized for its soulful, voice-like qualities.
           </p>
-          <div class="pillars" role="list">
-            <div class="pillar pillar--light" role="listitem">
+          <div class="pillars">
+            <div class="pillar">
               <span class="pillar__word">Asana</span>
               <span class="pillar__meaning">Posture</span>
             </div>
-            <div class="pillar pillar--light" role="listitem">
+            <div class="pillar">
               <span class="pillar__word">Pranayama</span>
               <span class="pillar__meaning">Breath</span>
             </div>
-            <div class="pillar pillar--light" role="listitem">
+            <div class="pillar">
               <span class="pillar__word">Sadhana</span>
               <span class="pillar__meaning">Daily Practice</span>
             </div>
-            <div class="pillar pillar--light" role="listitem">
+            <div class="pillar">
               <span class="pillar__word">Svadhyaya</span>
               <span class="pillar__meaning">Self-Study</span>
             </div>
           </div>
         </div>
       </div>
-
     </section>
 
-    <!-- ══════════════════════════════════════════════════
+    <!-- =====================================================
          SECTION 3 — THE PHILOSOPHY
-         Half-screen split: Text LEFT / Image RIGHT
-         Image: swati-face-pic2.jpg
-    ══════════════════════════════════════════════════ -->
-    <section id="philosophy" class="philosophy" aria-labelledby="philosophy-heading">
-
-      <div class="split__text-panel split__text-panel--dark">
-        <div class="split__text-inner reveal">
+         Half-screen · swati-face-pic2.jpg
+         Text LEFT · Image RIGHT
+    ===================================================== -->
+    <section id="philosophy" class="sec-split sec-split--reverse">
+      <div class="sec-split__text bg-dark">
+        <div class="sec-split__inner reveal">
           <p class="eyebrow eyebrow--gold">The Philosophy</p>
-          <h2 class="section-title section-title--light" id="philosophy-heading">
-            Yoga as a map<br><em>of the self</em>
-          </h2>
-          <p class="body-text body-text--light">
+          <h2 class="section-title light">Yoga as a map<br><em>of the self</em></h2>
+          <p class="body-text light">
             The practice of yoga invites a lifelong journey of Svadhyaya — the study
             of the self in order to know the Self, with ancient texts acting as a mirror.
             Swati is passionate about weaving knowledge of yoga philosophy and her rich
             cultural perspectives into yoga teacher education.
           </p>
-          <p class="body-text body-text--light">
+          <p class="body-text light">
             Committed to mentoring future teachers, she brings a deep understanding of
             both energetic and physical anatomy, as well as a dedication to creating warm,
             inclusive environments for the practice and study of yoga. Available as a guest
@@ -170,157 +151,120 @@
             teachers and practitioners looking to deepen their practice and connect with
             the source culture.
           </p>
-          <div class="float-tags">
-            <span class="float-tag">Ancient Texts</span>
-            <span class="float-tag">Sanskrit</span>
-            <span class="float-tag">Cultural Integrity</span>
-            <span class="float-tag">Energetic &amp; Physical Anatomy</span>
+          <div class="tags">
+            <span class="tag">Ancient Texts</span>
+            <span class="tag">Sanskrit</span>
+            <span class="tag">Cultural Integrity</span>
+            <span class="tag">Energetic &amp; Physical Anatomy</span>
           </div>
         </div>
       </div>
-
-      <div class="split__img-panel">
-        <img
-          src="images/swati-face-pic2.jpg"
-          alt="Swati"
-          loading="lazy"
-        />
+      <div class="sec-split__img">
+        <img src="images/swati-face-pic2.jpg" alt="Swati" loading="lazy" />
       </div>
-
     </section>
 
-    <!-- ══════════════════════════════════════════════════
+    <!-- =====================================================
          SECTION 4 — ABOUT SWATI
-         Half-screen split: Image LEFT / Text RIGHT
-         Image: about.jpg
-    ══════════════════════════════════════════════════ -->
-    <section id="about" class="about" aria-labelledby="about-heading">
-
-      <div class="split__img-panel">
-        <img
-          src="images/about.jpg"
-          alt="Swati"
-          loading="lazy"
-        />
+         Half-screen · about.jpg
+         Image LEFT · Text RIGHT
+    ===================================================== -->
+    <section id="about" class="sec-split">
+      <div class="sec-split__img">
+        <img src="images/about.jpg" alt="Swati" loading="lazy" />
       </div>
-
-      <div class="split__text-panel split__text-panel--light">
-        <div class="split__text-inner reveal">
+      <div class="sec-split__text bg-parchment">
+        <div class="sec-split__inner reveal">
           <p class="eyebrow">About Swati*</p>
-          <h2 class="section-title" id="about-heading">
-            A seeker, a student,<br><em>a teacher.</em>
-          </h2>
-          <p class="body-text">
+          <h2 class="section-title dark">A seeker, a student,<br><em class="rose">a teacher.</em></h2>
+          <p class="body-text dark">
             Swati came to yoga not through a studio but through a lineage — a tradition
             passed through culture, language, and story. Her practice is inseparable from
             the philosophy and heritage from which it grew.
           </p>
-          <p class="body-text">
+          <p class="body-text dark">
             Swati completed her 200-hour certification at Soma Yoga with Amy Leydon and
             Todd Skoglund. Her personal practice is also rooted in the teachings of Vipassana
             meditation and Sadhguru's Inner Engineering program.
           </p>
-          <p class="body-text">
+          <p class="body-text dark">
             She draws inspiration from her Indian cultural upbringing and communities,
             including the stories and teachings of ancient texts and modern interpretations,
             the wisdom of Ayurveda, and the beauty of South Asian artists, poets, and musicians.
           </p>
         </div>
       </div>
-
     </section>
 
-    <!-- ══════════════════════════════════════════════════
+    <!-- =====================================================
          SECTION 5 — RETREATS
-         Full-width image (retreat.jpg), text overlay RIGHT
-    ══════════════════════════════════════════════════ -->
-    <section id="retreats" class="retreats" aria-labelledby="retreats-heading">
-      <div class="retreats__bg">
-        <img
-          class="retreats__img"
-          src="images/retreat.jpg"
-          alt="A serene retreat setting"
-          loading="lazy"
-        />
-        <div class="retreats__overlay"></div>
-      </div>
-      <div class="retreats__content container">
-        <div class="retreats__text-inner reveal">
+         Full-width · retreat.jpg · Text overlay RIGHT
+    ===================================================== -->
+    <section id="retreats" class="sec-fullwidth">
+      <img class="sec-fullwidth__img" src="images/retreat.jpg" alt="A serene retreat setting" loading="lazy" />
+      <div class="sec-fullwidth__overlay sec-fullwidth__overlay--right"></div>
+      <div class="sec-fullwidth__text sec-fullwidth__text--right">
+        <div class="reveal">
           <p class="eyebrow eyebrow--gold">Retreats</p>
-          <h2 class="section-title section-title--light" id="retreats-heading">
-            Practice in<br><em>extraordinary places</em>
-          </h2>
-          <p class="body-text body-text--light">
+          <h2 class="section-title light">Practice in<br><em>extraordinary places</em></h2>
+          <p class="body-text light">
             Some lessons can only be learned when the ordinary falls away — Swati brings
             yoga's philosophical depth and cultural context to retreat settings. Available
             for classes, workshops, and immersive sessions in places that call the soul inward.
           </p>
-          <p class="body-text body-text--light">
+          <p class="body-text light">
             If you're a retreat organizer looking to add depth and dimension to your program,
             she'd love to hear from you.
           </p>
-          <a href="#contact" class="btn btn--gold" style="margin-top: 32px;">Get in Touch</a>
+          <a href="#contact" class="btn btn--gold" style="margin-top: 28px;">Get in Touch</a>
         </div>
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════════
+    <!-- =====================================================
          SECTION 6 — CONNECT
-         Half-screen split: Text LEFT / Image RIGHT
-         Image: music-instrument.jpg
-    ══════════════════════════════════════════════════ -->
-    <section id="contact" class="contact" aria-labelledby="contact-heading">
-
-      <div class="split__text-panel split__text-panel--dark">
-        <div class="split__text-inner reveal">
+         Half-screen · music-instrument.jpg
+         Text LEFT · Image RIGHT
+    ===================================================== -->
+    <section id="contact" class="sec-split sec-split--reverse">
+      <div class="sec-split__text bg-plum">
+        <div class="sec-split__inner reveal">
           <p class="eyebrow eyebrow--gold">Connect</p>
-          <h2 class="section-title section-title--light" id="contact-heading">
-            Begin the<br><em>conversation</em>
-          </h2>
-          <p class="body-text body-text--light">
+          <h2 class="section-title light">Begin the<br><em>conversation</em></h2>
+          <p class="body-text light">
             Whether you're looking to deepen your practice, collaborate on a retreat,
             or explore mentoring — Swati would love to connect.
           </p>
-          <div class="contact__links">
+          <div class="contact-links">
             <a href="mailto:namaste@swatiosophy.com" class="btn btn--gold btn--large">
               namaste@swatiosophy.com
             </a>
-            <a
-              href="https://instagram.com/swatiosophy"
-              class="btn btn--outline btn--large"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://instagram.com/swatiosophy" class="btn btn--outline btn--large"
+               target="_blank" rel="noopener noreferrer">
               @swatiosophy on Instagram
             </a>
           </div>
-          <div class="float-tags" style="margin-top: 32px;">
-            <span class="float-tag">Classes</span>
-            <span class="float-tag">Workshops</span>
-            <span class="float-tag">YTT Guest Lectures</span>
-            <span class="float-tag">Retreats</span>
-            <span class="float-tag">Mentoring</span>
+          <div class="tags" style="margin-top: 28px;">
+            <span class="tag">Classes</span>
+            <span class="tag">Workshops</span>
+            <span class="tag">YTT Guest Lectures</span>
+            <span class="tag">Retreats</span>
+            <span class="tag">Mentoring</span>
           </div>
         </div>
       </div>
-
-      <div class="split__img-panel">
-        <img
-          src="images/music-instrument.jpg"
-          alt="Sarangi — ancient Indian string instrument"
-          loading="lazy"
-        />
+      <div class="sec-split__img">
+        <img src="images/music-instrument.jpg" alt="Sarangi — ancient Indian string instrument" loading="lazy" />
       </div>
-
     </section>
 
   </main>
 
-  <!-- ══════════════════════════════════════════════════
+  <!-- =====================================================
        SECTION 7 — FOOTER / DISCLAIMER (no image)
-  ══════════════════════════════════════════════════ -->
+  ===================================================== -->
   <footer class="footer">
-    <div class="container">
+    <div class="footer__inner">
       <div class="footer__top">
         <div>
           <p class="footer__logo">Swatiosophy</p>
@@ -347,7 +291,6 @@
     </div>
   </footer>
 
-  <!-- Lenis smooth scroll CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="script.js"></script>
 
