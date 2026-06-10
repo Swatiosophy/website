@@ -87,11 +87,21 @@ ul { list-style: none; }
 }
 
 .nav__logo {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 400;
+  color: var(--ivory);
+  letter-spacing: 0.02em;
+}
+.nav__logo span {
+  font-family: var(--font-display);
+  font-style: normal;
+  color: var(--ivory);
+}
+.nav__logo em {
+  font-family: var(--font-serif);
+  font-style: italic;
   color: var(--gold);
-  letter-spacing: 0.04em;
 }
 
 .nav__links {
@@ -447,10 +457,10 @@ ul { list-style: none; }
   object-position: center 15%;
 }
 
-/* §4 About — show full body, center crop */
+/* §4 About — show full body, vertically centered */
 .sec-split__img--body img {
   object-fit: cover;
-  object-position: center 10%;
+  object-position: center 50%;
 }
 
 /* Background behind the image — matches the adjacent panel */
@@ -605,11 +615,21 @@ ul { list-style: none; }
 }
 
 .footer__logo {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.4rem;
+  font-style: normal;
+  color: var(--ivory);
+  margin-bottom: 6px;
+}
+.footer__logo span {
+  font-family: var(--font-display);
+  font-style: normal;
+  color: var(--ivory);
+}
+.footer__logo em {
+  font-family: var(--font-serif);
   font-style: italic;
   color: var(--gold);
-  margin-bottom: 6px;
 }
 
 .footer__tagline {
