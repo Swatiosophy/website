@@ -1,6 +1,5 @@
 /* ============================================================
    SWATIOSOPHY — style.css
-   Bulletproof flexbox layout. No dvh. No shared split classes.
    ============================================================ */
 
 /* ---- DESIGN TOKENS ---- */
@@ -14,6 +13,9 @@
   --ivory:      #f8f4ed;
   --parchment:  #f2ece0;
   --charcoal:   #2d2d2d;
+
+  /* Philosophy section — lighter than plum-dark, matches connect warmth */
+  --philosophy-bg: #3a1628;
 
   --font-serif:    'Cormorant Garamond', Georgia, serif;
   --font-display:  'IM Fell English', Georgia, serif;
@@ -30,7 +32,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  scroll-behavior: smooth; /* native smooth scroll — no Lenis needed */
+  scroll-behavior: smooth;
   font-size: 16px;
 }
 
@@ -92,6 +94,9 @@ ul { list-style: none; }
   font-weight: 400;
   color: var(--ivory);
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .nav__logo span {
   font-family: var(--font-display);
@@ -102,6 +107,15 @@ ul { list-style: none; }
   font-family: var(--font-serif);
   font-style: italic;
   color: var(--gold);
+}
+
+/* Logo image in nav — small, gold-tinted */
+.nav__logo-img {
+  height: 40px;
+  width: auto;
+  /* Mix-blend-mode lets the gold show through naturally on dark backgrounds */
+  mix-blend-mode: screen;
+  opacity: 0.9;
 }
 
 .nav__links {
@@ -233,7 +247,6 @@ ul { list-style: none; }
 
 /* ============================================================
    SECTION 1 — HERO
-   Full-width, 100vh, hero.jpg, text LEFT
    ============================================================ */
 .sec-hero {
   position: relative;
@@ -242,7 +255,6 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
-/* The background image fills the section absolutely */
 .sec-hero__img {
   position: absolute;
   top: 0; left: 0;
@@ -252,7 +264,6 @@ ul { list-style: none; }
   object-position: center top;
 }
 
-/* Gradient fades left side to dark so text is readable */
 .sec-hero__overlay {
   position: absolute;
   inset: 0;
@@ -265,7 +276,6 @@ ul { list-style: none; }
   );
 }
 
-/* Text block — left side, vertically centered */
 .sec-hero__text {
   position: absolute;
   top: 50%;
@@ -276,14 +286,13 @@ ul { list-style: none; }
 }
 
 .hero-title {
-  font-family: var(--font-display); /* IM Fell English — distressed old-style serif */
+  font-family: var(--font-display);
   font-size: clamp(3.2rem, 6vw, 6rem);
   font-weight: 400;
   color: var(--ivory);
   line-height: 1.05;
   margin-bottom: 20px;
 }
-/* "osophy" — elegant Cormorant Garamond italic */
 .hero-title em {
   font-family: var(--font-serif);
   font-style: italic;
@@ -292,7 +301,7 @@ ul { list-style: none; }
 }
 
 .hero-tagline {
-  font-family: var(--font-serif); /* Cormorant Garamond italic */
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: clamp(1.1rem, 1.5vw, 1.3rem);
   font-weight: 300;
@@ -301,14 +310,12 @@ ul { list-style: none; }
   margin-bottom: 36px;
 }
 
-/* "Self Discovery through Yoga" eyebrow uses Cinzel */
 .sec-hero .eyebrow {
   font-family: var(--font-cinzel);
   font-size: 0.65rem;
   letter-spacing: 0.28em;
 }
 
-/* Scroll indicator */
 .sec-hero__scroll {
   position: absolute;
   bottom: 32px;
@@ -345,6 +352,9 @@ ul { list-style: none; }
   background: var(--plum-mid);
   padding: 14px 0;
   white-space: nowrap;
+  /* Soft fade edges — less harsh/corporate */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
 }
 
 .strip__inner {
@@ -378,31 +388,31 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   SECTION DIVIDER BAR
+   SECTION DIVIDER BAR — softened with gradient fade
    ============================================================ */
 .sec-divider {
   width: 100%;
   height: 18px;
   background: var(--rose);
+  /* Fade in and out on both sides so it blends with sections */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  /* Also feather the top and bottom edges */
+  border: none;
+  box-shadow:
+    0 -6px 18px rgba(196, 96, 122, 0.18),
+    0  6px 18px rgba(196, 96, 122, 0.18);
 }
 
 /* ============================================================
-   SECTIONS 2, 3, 4, 6 — SPLIT HALF-SCREEN
-   Uses display:flex with two 50% children.
-   Images use position:absolute inset:0 to fill panels.
-
-   .sec-split            = default: img-left / text-right
-   .sec-split--reverse   = text-left / img-right
+   SECTIONS 2, 3, 4 — SPLIT HALF-SCREEN
    ============================================================ */
-
-/* The section itself is a flex row */
 .sec-split {
   display: flex;
   width: 100%;
   min-height: 90vh;
 }
 
-/* Image panel — 50% wide, relative so the img can be absolute */
 .sec-split__img {
   flex: 0 0 50%;
   width: 50%;
@@ -410,7 +420,6 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
-/* The image fills its panel completely */
 .sec-split__img img {
   position: absolute;
   top: 0; left: 0;
@@ -420,7 +429,6 @@ ul { list-style: none; }
   object-position: center center;
 }
 
-/* Text panel — 50% wide, flex column, vertically centered */
 .sec-split__text {
   flex: 0 0 50%;
   width: 50%;
@@ -430,47 +438,42 @@ ul { list-style: none; }
   padding: var(--pad-y) var(--pad-x);
 }
 
-/* Inner text wrapper — limits max width for readability */
 .sec-split__inner {
   max-width: 520px;
 }
 
-/* For --reverse sections (text-left / img-right),
-   swap the order using flex order property */
 .sec-split--reverse .sec-split__text { order: 1; }
 .sec-split--reverse .sec-split__img  { order: 2; }
 
-/* Background color variants for text panels */
-.bg-dark     { background: var(--plum-dark); }
-.bg-parchment{ background: var(--parchment); }
-.bg-plum     { background: var(--plum); }
+/* Background color variants */
+.bg-dark        { background: var(--plum-dark); }
+.bg-parchment   { background: var(--parchment); }
+.bg-plum        { background: var(--plum); }
+/* Change 2: Philosophy background — lighter warm plum, not dark maroon */
+.bg-philosophy  { background: var(--philosophy-bg); }
 
-/* Portrait image variant — shows the full photo without cropping (§6) */
 .sec-split__img--portrait img {
   object-fit: contain;
   object-position: center center;
 }
 
-/* §3 Philosophy — crop to face, focus on upper portion */
 .sec-split__img--face img {
   object-fit: cover;
   object-position: center 15%;
 }
 
-/* §4 About — show full body, shifted lower to include feet */
 .sec-split__img--body img {
   object-fit: cover;
   object-position: center 65%;
 }
 
-/* Background behind the image — matches the adjacent panel */
-.sec-split__img--bg-dark      { background: var(--plum-dark); }
-.sec-split__img--bg-parchment { background: var(--parchment); }
-.sec-split__img--bg-plum      { background: var(--plum); }
+.sec-split__img--bg-dark        { background: var(--plum-dark); }
+.sec-split__img--bg-parchment   { background: var(--parchment); }
+.sec-split__img--bg-plum        { background: var(--plum); }
+.sec-split__img--bg-philosophy  { background: var(--philosophy-bg); }
 
 /* ============================================================
    SECTION 5 — RETREATS
-   Full-width, 100vh, retreat.jpg, text overlay RIGHT
    ============================================================ */
 .sec-fullwidth {
   position: relative;
@@ -479,7 +482,6 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
-/* Background image fills section */
 .sec-fullwidth__img {
   position: absolute;
   top: 0; left: 0;
@@ -489,13 +491,11 @@ ul { list-style: none; }
   object-position: center center;
 }
 
-/* Gradient overlay — default fades from left */
 .sec-fullwidth__overlay {
   position: absolute;
   inset: 0;
 }
 
-/* Right-side variant fades from right so text on right is readable */
 .sec-fullwidth__overlay--right {
   background: linear-gradient(
     to left,
@@ -506,7 +506,6 @@ ul { list-style: none; }
   );
 }
 
-/* Text block — positioned right, vertically centered */
 .sec-fullwidth__text {
   position: absolute;
   z-index: 1;
@@ -519,6 +518,37 @@ ul { list-style: none; }
   right: var(--pad-x);
   left: auto;
   text-align: left;
+}
+
+/* ============================================================
+   SECTION 6 — CONNECT (full-width, no image, twilight gradient)
+   ============================================================ */
+.sec-contact {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pad-y) var(--pad-x);
+  /* Change 4: Rich atmospheric twilight gradient */
+  background: radial-gradient(
+    ellipse at 50% 60%,
+    #5c1f3f 0%,
+    #3e1030 25%,
+    #2b0b22 50%,
+    #1c0717 75%,
+    #140514 100%
+  );
+  text-align: center;
+}
+
+.sec-contact__inner {
+  max-width: 680px;
+  width: 100%;
+}
+
+.sec-contact .contact-links {
+  align-items: center;
 }
 
 /* ============================================================
@@ -554,33 +584,56 @@ ul { list-style: none; }
   margin-top: 3px;
 }
 
-/* Pillar variant for light/parchment backgrounds */
 .pillars--on-light .pillar__word    { color: var(--plum); }
 .pillars--on-light .pillar__meaning { color: rgba(61,28,46,0.55); }
 
 /* ============================================================
-   COMPONENT: TAGS
+   COMPONENT: TAGS — Change 3: decorative, not button-like
    ============================================================ */
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px 16px;
   margin-top: 24px;
 }
 
+/* Default tag — subtle, decorative, no button appearance */
 .tag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(212, 168, 75, 0.75);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  cursor: default;
+  /* Subtle dot separator via pseudo-element */
+  position: relative;
+}
+
+/* Add a small dot between tags */
+.tag + .tag::before {
+  content: '·';
+  margin-right: 16px;
+  color: rgba(212, 168, 75, 0.35);
+  font-style: normal;
+}
+
+/* Decorative variant used on connect/philosophy */
+.tags--decorative .tag {
+  font-family: var(--font-cinzel);
+  font-size: 0.68rem;
+  font-style: normal;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 6px 14px;
-  border: 1px solid rgba(201,169,110,0.35);
-  color: var(--gold);
-  border-radius: 2px;
+  color: rgba(212, 168, 75, 0.6);
 }
 
 /* ============================================================
-   COMPONENT: CONTACT LINKS (§6)
+   COMPONENT: CONTACT LINKS
    ============================================================ */
 .contact-links {
   display: flex;
@@ -591,7 +644,7 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   SECTION 7 — FOOTER
+   FOOTER
    ============================================================ */
 .footer {
   background: #0e0509;
@@ -656,12 +709,28 @@ ul { list-style: none; }
 }
 .footer__nav a:hover { color: var(--gold); }
 
+/* Change 6: disclaimer row with logo beside text */
+.footer__disclaimer-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+/* Large logo in footer */
+.footer__logo-img {
+  width: 110px;
+  height: auto;
+  flex-shrink: 0;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
 .footer__disclaimer {
   font-size: 0.95rem;
   line-height: 1.75;
   color: rgba(248,244,237,0.5);
   max-width: 860px;
-  margin-bottom: 32px;
 }
 
 .footer__copy {
@@ -689,13 +758,50 @@ ul { list-style: none; }
    ============================================================ */
 @media (max-width: 900px) {
 
-  /* Split sections stack vertically on mobile */
   .sec-split {
     flex-direction: column;
     min-height: auto;
   }
 
-  /* On mobile, image always comes first (top) */
+  /* Change 8: Practice section — taller on mobile to show full hand */
+  #practice .sec-split__img {
+    flex: none;
+    width: 100%;
+    height: 95vw;
+    min-height: 380px;
+    max-height: none;
+  }
+
+  #practice .sec-split__img img {
+    object-position: center top;
+  }
+
+  /* Change 8: About section — taller to show full body */
+  #about .sec-split__img {
+    flex: none;
+    width: 100%;
+    height: 110vw;
+    min-height: 420px;
+    max-height: none;
+  }
+
+  #about .sec-split__img img {
+    object-position: center 30%;
+  }
+
+  /* Philosophy image panel */
+  #philosophy .sec-split__img {
+    flex: none;
+    width: 100%;
+    height: 75vw;
+    min-height: 300px;
+    max-height: 420px;
+  }
+
+  #philosophy .sec-split__img img {
+    object-position: center 20%;
+  }
+
   .sec-split__img {
     flex: none;
     width: 100%;
@@ -722,11 +828,16 @@ ul { list-style: none; }
     padding: 48px 28px;
   }
 
-  /* Reset reverse order on mobile so image always comes first */
   .sec-split--reverse .sec-split__text { order: 2; }
   .sec-split--reverse .sec-split__img  { order: 1; }
 
-  /* Retreats text on mobile — center it */
+  /* Change 8: Retreats — use contain so full body shows */
+  .sec-fullwidth__img {
+    object-fit: contain;
+    object-position: center center;
+    background: #1a0814;
+  }
+
   .sec-fullwidth__text--right {
     right: auto;
     left: 50%;
@@ -740,7 +851,7 @@ ul { list-style: none; }
     background: linear-gradient(
       to bottom,
       rgba(26,10,20,0.3) 0%,
-      rgba(26,10,20,0.75) 100%
+      rgba(26,10,20,0.85) 100%
     );
   }
 
@@ -778,7 +889,6 @@ ul { list-style: none; }
 
   .nav__toggle { display: flex; }
 
-  /* Hero text on mobile */
   .sec-hero__text {
     left: 24px;
     right: 24px;
@@ -793,13 +903,11 @@ ul { list-style: none; }
     background: rgba(26,10,20,0.65);
   }
 
-  /* Pillars */
   .pillars {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
 
-  /* Contact links stack full-width */
   .contact-links {
     align-items: stretch;
   }
@@ -808,7 +916,6 @@ ul { list-style: none; }
     text-align: center;
   }
 
-  /* Footer */
   .footer__top {
     flex-direction: column;
   }
@@ -816,16 +923,37 @@ ul { list-style: none; }
   .footer__nav {
     gap: 14px 24px;
   }
+
+  /* Footer disclaimer row stacks on mobile */
+  .footer__disclaimer-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer__logo-img {
+    width: 90px;
+  }
+
+  /* Tags wrap nicely on mobile */
+  .tags {
+    justify-content: center;
+  }
+
+  .tag + .tag::before {
+    display: none;
+  }
+
+  .sec-contact {
+    text-align: center;
+    padding: 60px 24px;
+  }
 }
 
 @media (orientation: portrait) and (min-width: 901px) {
   .sec-hero__img {
     object-position: 65% center;
-  }
-
-  .sec-split__img img {
-    object-fit: contain;
-    object-position: center center;
   }
 }
 
@@ -837,4 +965,8 @@ ul { list-style: none; }
   }
 
   .sec-hero__scroll { display: none; }
+
+  .footer__logo-img {
+    width: 75px;
+  }
 }
