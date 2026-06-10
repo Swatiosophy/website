@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Lenis smooth scroll ──────────────────────────────────────
   const lenis = new Lenis({
-    duration: 1.4,
+    duration: 0.8,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 0.85,
+    wheelMultiplier: 1.2,
   });
 
   function raf(time) {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      lenis.scrollTo(target, { offset: -72, duration: 1.4 });
+      lenis.scrollTo(target, { offset: -72, duration: 0.8 });
     });
   });
 
