@@ -21,8 +21,8 @@
       <ul class="nav__links" id="navLinks" role="list">
         <li><a href="#practice">Practice</a></li>
         <li><a href="#philosophy">Philosophy</a></li>
-        <li><a href="#retreats">Retreats</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#retreats">Retreats</a></li>
         <li><a href="#contact" class="nav__cta">Connect</a></li>
       </ul>
       <button
@@ -37,10 +37,10 @@
     </div>
   </nav>
 
-  <!-- ── HERO — full-width image, text overlay LEFT ────────
-       IMAGE NOTE: replace "images/hero.jpg" with your actual
-       hero image filename from your images/ folder.
-  ──────────────────────────────────────────────────────── -->
+  <!-- ══════════════════════════════════════════════════════
+       SECTION 1 — HERO
+       Full-width image (hero.jpg), text overlay LEFT
+  ══════════════════════════════════════════════════════ -->
   <section id="hero" class="hero" aria-labelledby="hero-heading">
     <div class="hero__bg">
       <img class="hero__img" src="images/hero.jpg" alt="Swati in a yoga pose" />
@@ -65,7 +65,7 @@
 
   <main id="main-content">
 
-    <!-- ── PHILOSOPHY STRIP (MARQUEE) ───────────────────── -->
+    <!-- ── MARQUEE STRIP ────────────────────────────────── -->
     <div class="strip" aria-hidden="true">
       <div class="strip__inner">
         <span class="strip__item">Svadhyaya</span><span class="strip__dot"></span>
@@ -78,7 +78,6 @@
         <span class="strip__item">Yoga Philosophy</span><span class="strip__dot"></span>
         <span class="strip__item">Ahimsa</span><span class="strip__dot"></span>
         <span class="strip__item">Heritage</span><span class="strip__dot"></span>
-        <!-- duplicate set for seamless loop -->
         <span class="strip__item">Svadhyaya</span><span class="strip__dot"></span>
         <span class="strip__item">Self-Study</span><span class="strip__dot"></span>
         <span class="strip__item">Asana</span><span class="strip__dot"></span>
@@ -92,64 +91,67 @@
       </div>
     </div>
 
-    <!-- ── PRACTICE — full-width image, text overlay RIGHT ──
-         IMAGE NOTE: "swati-doing-yogo-post-on-rock.jpg" is
-         confirmed in CLAUDE.md — verify filename in images/.
-    ──────────────────────────────────────────────────────── -->
+    <!-- ══════════════════════════════════════════════════
+         SECTION 2 — THE PRACTICE
+         Half-screen split: Image LEFT / Text RIGHT
+         Image: swati-doing-yoga-post-on-rock.jpg
+    ══════════════════════════════════════════════════ -->
     <section id="practice" class="practice" aria-labelledby="practice-heading">
-      <div class="practice__bg">
+
+      <div class="split__img-panel">
         <img
-          class="practice__img"
-          src="images/swati-doing-yogo-post-on-rock.jpg"
+          src="images/swati-doing-yoga-post-on-rock.jpg"
           alt="Swati in a yoga pose on a rock"
           loading="lazy"
         />
-        <div class="practice__overlay"></div>
       </div>
-      <div class="practice__content">
-        <div class="container">
-          <div class="practice__text-inner reveal">
-            <p class="eyebrow">The Practice</p>
-            <h2 class="section-title section-title--light" id="practice-heading">
-              Asana as a path<br><em>of Inquiry</em>
-            </h2>
-            <p class="body-text body-text--light">
-              Swati teaches yoga inspired by traditional yoga philosophy, history, and
-              cultural immersion, where asana, pranayama, and philosophy are taught as
-              one inseparable practice. She believes yoga practice is deepened through
-              connection to its roots — the concepts, language, and heritage that shaped it.
-              Her classes include original compositions by Michael Dwan Singh, featuring
-              sarangi, an ancient Indian instrument prized for its soulful, voice-like qualities.
-            </p>
-            <div class="pillars pillars--light" role="list">
-              <div class="pillar pillar--light" role="listitem">
-                <span class="pillar__word">Asana</span>
-                <span class="pillar__meaning">Posture</span>
-              </div>
-              <div class="pillar pillar--light" role="listitem">
-                <span class="pillar__word">Pranayama</span>
-                <span class="pillar__meaning">Breath</span>
-              </div>
-              <div class="pillar pillar--light" role="listitem">
-                <span class="pillar__word">Sadhana</span>
-                <span class="pillar__meaning">Daily Practice</span>
-              </div>
-              <div class="pillar pillar--light" role="listitem">
-                <span class="pillar__word">Svadhyaya</span>
-                <span class="pillar__meaning">Self-Study</span>
-              </div>
+
+      <div class="split__text-panel split__text-panel--dark">
+        <div class="split__text-inner reveal">
+          <p class="eyebrow">The Practice</p>
+          <h2 class="section-title section-title--light" id="practice-heading">
+            Asana as a path<br><em>of Inquiry</em>
+          </h2>
+          <p class="body-text body-text--light">
+            Swati teaches yoga inspired by traditional yoga philosophy, history, and
+            cultural immersion, where asana, pranayama, and philosophy are taught as
+            one inseparable practice. She believes yoga practice is deepened through
+            connection to its roots — the concepts, language, and heritage that shaped it.
+            Her classes include original compositions by Michael Dwan Singh, featuring
+            sarangi, an ancient Indian instrument prized for its soulful, voice-like qualities.
+          </p>
+          <div class="pillars" role="list">
+            <div class="pillar pillar--light" role="listitem">
+              <span class="pillar__word">Asana</span>
+              <span class="pillar__meaning">Posture</span>
+            </div>
+            <div class="pillar pillar--light" role="listitem">
+              <span class="pillar__word">Pranayama</span>
+              <span class="pillar__meaning">Breath</span>
+            </div>
+            <div class="pillar pillar--light" role="listitem">
+              <span class="pillar__word">Sadhana</span>
+              <span class="pillar__meaning">Daily Practice</span>
+            </div>
+            <div class="pillar pillar--light" role="listitem">
+              <span class="pillar__word">Svadhyaya</span>
+              <span class="pillar__meaning">Self-Study</span>
             </div>
           </div>
         </div>
       </div>
+
     </section>
 
-    <!-- ── PHILOSOPHY ────────────────────────────────────── -->
-    <section id="philosophy" class="philosophy section" aria-labelledby="philosophy-heading">
-      <div class="philosophy__orb philosophy__orb--1" aria-hidden="true"></div>
-      <div class="philosophy__orb philosophy__orb--2" aria-hidden="true"></div>
-      <div class="container">
-        <div class="philosophy__inner reveal">
+    <!-- ══════════════════════════════════════════════════
+         SECTION 3 — THE PHILOSOPHY
+         Half-screen split: Text LEFT / Image RIGHT
+         Image: swati-face-pic2.jpg
+    ══════════════════════════════════════════════════ -->
+    <section id="philosophy" class="philosophy" aria-labelledby="philosophy-heading">
+
+      <div class="split__text-panel split__text-panel--dark">
+        <div class="split__text-inner reveal">
           <p class="eyebrow eyebrow--gold">The Philosophy</p>
           <h2 class="section-title section-title--light" id="philosophy-heading">
             Yoga as a map<br><em>of the self</em>
@@ -176,22 +178,73 @@
           </div>
         </div>
       </div>
+
+      <div class="split__img-panel">
+        <img
+          src="images/swati-face-pic2.jpg"
+          alt="Swati"
+          loading="lazy"
+        />
+      </div>
+
     </section>
 
-    <!-- ── RETREATS — 50/50 split: image LEFT, text RIGHT ───
-         IMAGE NOTE: replace "images/retreat.jpg" with your
-         actual retreat image filename from your images/ folder.
-    ──────────────────────────────────────────────────────── -->
+    <!-- ══════════════════════════════════════════════════
+         SECTION 4 — ABOUT SWATI
+         Half-screen split: Image LEFT / Text RIGHT
+         Image: about.jpg
+    ══════════════════════════════════════════════════ -->
+    <section id="about" class="about" aria-labelledby="about-heading">
+
+      <div class="split__img-panel">
+        <img
+          src="images/about.jpg"
+          alt="Swati"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="split__text-panel split__text-panel--light">
+        <div class="split__text-inner reveal">
+          <p class="eyebrow">About Swati*</p>
+          <h2 class="section-title" id="about-heading">
+            A seeker, a student,<br><em>a teacher.</em>
+          </h2>
+          <p class="body-text">
+            Swati came to yoga not through a studio but through a lineage — a tradition
+            passed through culture, language, and story. Her practice is inseparable from
+            the philosophy and heritage from which it grew.
+          </p>
+          <p class="body-text">
+            Swati completed her 200-hour certification at Soma Yoga with Amy Leydon and
+            Todd Skoglund. Her personal practice is also rooted in the teachings of Vipassana
+            meditation and Sadhguru's Inner Engineering program.
+          </p>
+          <p class="body-text">
+            She draws inspiration from her Indian cultural upbringing and communities,
+            including the stories and teachings of ancient texts and modern interpretations,
+            the wisdom of Ayurveda, and the beauty of South Asian artists, poets, and musicians.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════════════════
+         SECTION 5 — RETREATS
+         Full-width image (retreat.jpg), text overlay RIGHT
+    ══════════════════════════════════════════════════ -->
     <section id="retreats" class="retreats" aria-labelledby="retreats-heading">
-      <div class="retreats__img-panel">
+      <div class="retreats__bg">
         <img
           class="retreats__img"
           src="images/retreat.jpg"
           alt="A serene retreat setting"
           loading="lazy"
         />
+        <div class="retreats__overlay"></div>
       </div>
-      <div class="retreats__text-panel">
+      <div class="retreats__content container">
         <div class="retreats__text-inner reveal">
           <p class="eyebrow eyebrow--gold">Retreats</p>
           <h2 class="section-title section-title--light" id="retreats-heading">
@@ -211,58 +264,20 @@
       </div>
     </section>
 
-    <!-- ── ABOUT — 50/50 split: image LEFT, text RIGHT ─────
-         IMAGE NOTE: replace "images/about.jpg" with your
-         actual portrait image filename from your images/ folder.
-    ──────────────────────────────────────────────────────── -->
-    <section id="about" class="about" aria-labelledby="about-heading">
-      <div class="about__img-panel">
-        <img
-          class="about__img"
-          src="images/about.jpg"
-          alt="Swati"
-          loading="lazy"
-        />
-      </div>
-      <div class="about__text-panel">
-        <div class="about__text-inner reveal">
-          <p class="eyebrow">About Swati</p>
-          <h2 class="section-title" id="about-heading">
-            A seeker, a student,<br><em>a teacher.</em>
-          </h2>
-          <p class="body-text">
-            Swati came to yoga not through a studio but through a lineage — a tradition
-            passed through culture, language, and story. Her practice is inseparable from
-            the philosophy and heritage from which it grew.
-          </p>
-          <p class="body-text">
-            Swati completed her 200-hour certification at Soma Yoga with Amy Leydon and
-            Todd Skoglund. Her personal practice is also rooted in the teachings of Vipassana
-            meditation and Sadhguru's Inner Engineering program.
-          </p>
-          <p class="body-text">
-            She draws inspiration from her Indian cultural upbringing and communities,
-            including the stories and teachings of ancient texts and modern interpretations,
-            the wisdom of Ayurveda, and the beauty of South Asian artists, poets, and musicians.
-          </p>
-          <div class="about__creds">
-            <p class="cred-item">200-hr Certification · Soma Yoga</p>
-            <p class="cred-item">Vipassana Meditation Practice</p>
-            <p class="cred-item">Inner Engineering · Sadhguru</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- ══════════════════════════════════════════════════
+         SECTION 6 — CONNECT
+         Half-screen split: Text LEFT / Image RIGHT
+         Image: music-instrument.jpg
+    ══════════════════════════════════════════════════ -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
 
-    <!-- ── CONTACT ───────────────────────────────────────── -->
-    <section id="contact" class="contact section" aria-labelledby="contact-heading">
-      <div class="container">
-        <div class="contact__inner">
+      <div class="split__text-panel split__text-panel--dark">
+        <div class="split__text-inner reveal">
           <p class="eyebrow eyebrow--gold">Connect</p>
           <h2 class="section-title section-title--light" id="contact-heading">
             Begin the<br><em>conversation</em>
           </h2>
-          <p class="body-text body-text--light contact__lead">
+          <p class="body-text body-text--light">
             Whether you're looking to deepen your practice, collaborate on a retreat,
             or explore mentoring — Swati would love to connect.
           </p>
@@ -279,7 +294,7 @@
               @swatiosophy on Instagram
             </a>
           </div>
-          <div class="float-tags contact__tags">
+          <div class="float-tags" style="margin-top: 32px;">
             <span class="float-tag">Classes</span>
             <span class="float-tag">Workshops</span>
             <span class="float-tag">YTT Guest Lectures</span>
@@ -288,11 +303,22 @@
           </div>
         </div>
       </div>
+
+      <div class="split__img-panel">
+        <img
+          src="images/music-instrument.jpg"
+          alt="Sarangi — ancient Indian string instrument"
+          loading="lazy"
+        />
+      </div>
+
     </section>
 
   </main>
 
-  <!-- ── FOOTER ────────────────────────────────────────── -->
+  <!-- ══════════════════════════════════════════════════
+       SECTION 7 — FOOTER / DISCLAIMER (no image)
+  ══════════════════════════════════════════════════ -->
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
@@ -303,8 +329,8 @@
         <nav class="footer__nav" aria-label="Footer navigation">
           <a href="#practice">Practice</a>
           <a href="#philosophy">Philosophy</a>
-          <a href="#retreats">Retreats</a>
           <a href="#about">About</a>
+          <a href="#retreats">Retreats</a>
           <a href="mailto:namaste@swatiosophy.com">Email</a>
           <a href="https://instagram.com/swatiosophy" target="_blank" rel="noopener noreferrer">Instagram</a>
         </nav>
