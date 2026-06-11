@@ -39,19 +39,8 @@ ul { list-style: none; }
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); transition: background 0.4s, box-shadow 0.4s; }
 .nav.is-scrolled { background: rgba(26,10,20,0.97); box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
 .nav__inner { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad-x); height: 100%; display: flex; align-items: center; justify-content: space-between; }
-
-.nav__logo {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: var(--ivory);
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  /* inline so no flex gap splits the word */
-  display: inline;
-}
+.nav__logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--ivory); letter-spacing: 0.02em; white-space: nowrap; display: inline; }
 .nav__logo em { font-family: var(--font-serif); font-style: italic; color: var(--gold); margin: 0; padding: 0; }
-
 .nav__links { display: flex; gap: 36px; align-items: center; }
 .nav__links a { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ivory); opacity: 0.85; transition: color 0.2s, opacity 0.2s; }
 .nav__links a:hover { color: var(--gold); opacity: 1; }
@@ -76,12 +65,10 @@ ul { list-style: none; }
 .eyebrow { font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ivory); opacity: 0.65; margin-bottom: 16px; }
 .eyebrow--gold { color: var(--gold); opacity: 1; }
 .eyebrow--dark { color: var(--plum); opacity: 0.6; }
-
 .section-title { font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 500; line-height: 1.2; margin-bottom: 28px; }
 .section-title em { font-style: italic; color: var(--rose); }
 .section-title.light { color: var(--ivory); }
 .section-title.dark  { color: var(--plum); }
-
 .body-text { font-family: var(--font-sans); font-size: clamp(0.9rem, 1.1vw, 1.05rem); line-height: 1.85; font-weight: 300; margin-bottom: 20px; }
 .body-text.light { color: rgba(248,244,237,0.88); }
 .body-text.dark  { color: rgba(42,16,32,0.82); }
@@ -102,66 +89,39 @@ ul { list-style: none; }
 @keyframes scrollPulse { 0%,100%{opacity:0.3;transform:scaleY(1);} 50%{opacity:0.9;transform:scaleY(1.2);} }
 
 /* ============================================================
-   MARQUEE STRIP — Cormorant italic, visible round dots
+   MARQUEE STRIP
    ============================================================ */
-.strip {
-  overflow: hidden;
-  background: var(--plum-mid);
-  padding: 16px 0;
-  white-space: nowrap;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-}
+.strip { overflow: hidden; background: var(--plum-mid); padding: 16px 0; white-space: nowrap; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%); }
 .strip__inner { display: inline-block; animation: marquee 40s linear infinite; }
-
-.strip__item {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.05rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: var(--gold);
-  padding: 0 8px;
-}
-
-/* Round dot — rendered as a visible inline element */
-.strip__dot {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  background: rgba(212, 168, 75, 0.6);
-  border-radius: 50%;
-  vertical-align: middle;
-  margin: 0 6px;
-  position: relative;
-  top: -1px;
-}
-
+.strip__item { font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; font-weight: 400; letter-spacing: 0.06em; color: var(--gold); padding: 0 8px; }
+.strip__dot { display: inline-block; width: 5px; height: 5px; background: rgba(212,168,75,0.6); border-radius: 50%; vertical-align: middle; margin: 0 6px; position: relative; top: -1px; }
 @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
 /* ============================================================
-   SECTION DIVIDER — pink to gold glow, no black
+   SECTION DIVIDER — pink centre, fades to gold then white at edges
+   No dark colours anywhere
    ============================================================ */
 .sec-divider {
   width: 100%;
-  height: 18px;
-  /* Pink centre fading to gold at edges — no black */
+  height: 20px;
+  /* Pink in the middle, gold transitioning to near-white at the very edges */
   background: linear-gradient(
     to right,
-    var(--gold) 0%,
-    var(--rose) 30%,
-    var(--rose) 70%,
-    var(--gold) 100%
+    rgba(255,255,255,0.0) 0%,
+    var(--gold)           8%,
+    var(--rose)           25%,
+    var(--rose)           75%,
+    var(--gold)           92%,
+    rgba(255,255,255,0.0) 100%
   );
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  /* Pink + gold glow */
+  /* Soft glow — warm pink+gold light, no dark shadow */
   box-shadow:
-    0 -10px 30px rgba(212, 168, 75, 0.25),
-    0  10px 30px rgba(212, 168, 75, 0.25),
-    0   0   50px rgba(196,  96, 122, 0.3);
+    0 -8px 24px rgba(212, 168, 75,  0.28),
+    0  8px 24px rgba(212, 168, 75,  0.28),
+    0  0   36px rgba(196,  96, 122, 0.22);
   position: relative;
   z-index: 1;
+  border: none;
 }
 
 /* ============================================================
@@ -175,7 +135,6 @@ ul { list-style: none; }
 .sec-split--reverse .sec-split__text { order: 1; }
 .sec-split--reverse .sec-split__img  { order: 2; }
 
-/* Backgrounds */
 .bg-dark        { background: var(--plum-dark); }
 .bg-parchment   { background: var(--parchment); }
 .bg-plum        { background: var(--plum); }
@@ -185,14 +144,13 @@ ul { list-style: none; }
 .sec-split__img--bg-parchment  { background: var(--parchment); }
 .sec-split__img--bg-philosophy { background: var(--philosophy-bg); }
 
-/* Image positioning */
 .sec-split__img--face img { object-fit: cover; object-position: center 15%; }
 
-/* About — zoomed out, slightly higher focal point */
-.sec-split__img--body img { object-fit: cover; object-position: center 35%; }
+/* About photo: face at ~55% from top of portrait image, feet near bottom */
+.sec-split__img--body img { object-fit: cover; object-position: center 55%; }
 
-/* About section taller on desktop to show more photo */
-.sec-about { min-height: 110vh; }
+/* About section taller so the full portrait shows */
+.sec-about { min-height: 115vh; }
 
 /* ============================================================
    RETREATS
@@ -216,7 +174,6 @@ ul { list-style: none; }
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  /* Layered radial gradients create the central glow effect */
   background:
     radial-gradient(ellipse 60% 70% at 50% 50%,
       rgba(140, 50, 95,  0.7) 0%,
@@ -230,78 +187,25 @@ ul { list-style: none; }
       #120514 100%
     );
 }
-
-.sec-contact__inner {
-  position: relative;
-  z-index: 1;
-  max-width: 760px;
-  width: 100%;
-}
-
-/* Larger connect title */
-.contact-title {
-  font-size: clamp(2.6rem, 4.5vw, 4.2rem) !important;
-  margin-bottom: 20px;
-}
-
-/* Larger connect body */
-.contact-body {
-  font-size: clamp(1.05rem, 1.4vw, 1.25rem) !important;
-  max-width: 580px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 28px;
-}
-
-.sec-contact .contact-links {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  margin-top: 36px;
-}
+.sec-contact__inner { position: relative; z-index: 1; max-width: 760px; width: 100%; }
+.contact-title { font-size: clamp(2.6rem, 4.5vw, 4.2rem) !important; margin-bottom: 20px; }
+.contact-body { font-size: clamp(1.05rem, 1.4vw, 1.25rem) !important; max-width: 580px; margin-left: auto; margin-right: auto; margin-bottom: 28px; }
+.sec-contact .contact-links { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; margin-top: 36px; }
 
 /* ============================================================
-   TAGS — italic serif, ◆ gold diamonds, no boxes
+   TAGS — italic serif, ◆ diamonds, centered in philosophy & connect
    ============================================================ */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  row-gap: 12px;
-  margin-top: 24px;
-}
+.tags { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; row-gap: 12px; margin-top: 24px; }
 
-/* Center tags inside contact */
+/* Philosophy tags — centered */
+#philosophy .tags { justify-content: center; text-align: center; }
+
+/* Connect tags — centered */
 .sec-contact .tags { justify-content: center; }
 
-.tag {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  color: rgba(212, 168, 75, 0.85);
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: default;
-  white-space: nowrap;
-}
+.tag { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; font-weight: 400; letter-spacing: 0.03em; color: rgba(212,168,75,0.85); padding: 0; border: none; background: transparent; cursor: default; white-space: nowrap; }
 
-/* Gold ◆ diamond separator */
-.tag + .tag::before {
-  content: '◆';
-  display: inline-block;
-  font-style: normal;
-  font-size: 0.5rem;
-  color: var(--gold);
-  opacity: 0.65;
-  margin: 0 12px;
-  vertical-align: middle;
-}
+.tag + .tag::before { content: '◆'; display: inline-block; font-style: normal; font-size: 0.5rem; color: var(--gold); opacity: 0.65; margin: 0 12px; vertical-align: middle; }
 
 /* ============================================================
    PILLARS
@@ -331,43 +235,18 @@ ul { list-style: none; }
 .footer__nav a { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: rgba(248,244,237,0.55); transition: color 0.2s; }
 .footer__nav a:hover { color: var(--gold); }
 
-/* Logo + disclaimer + credits row */
-.footer__bottom-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 32px;
-  margin-bottom: 32px;
-}
+/* Logo stamp + text row */
+.footer__bottom-row { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 32px; }
 
-/* Logo to the left of text on desktop */
-.footer__logo-img {
-  width: 80px;
-  height: auto;
-  flex-shrink: 0;
-  mix-blend-mode: screen;
-  opacity: 0.82;
-}
+/* Small 40px stamp logo */
+.footer__logo-img { width: 40px; height: auto; flex-shrink: 0; mix-blend-mode: screen; opacity: 0.85; margin-top: 2px; }
 
-.footer__bottom-text {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex: 1;
-}
+.footer__bottom-text { display: flex; flex-direction: column; gap: 12px; flex: 1; }
 
-.footer__disclaimer {
-  font-size: 0.9rem;
-  line-height: 1.75;
-  color: rgba(248,244,237,0.5);
-}
+.footer__disclaimer { font-size: 0.9rem; line-height: 1.75; color: rgba(248,244,237,0.5); }
 
 /* Photo credits — italic, smaller */
-.footer__photo-credits {
-  font-size: 0.78rem;
-  line-height: 1.7;
-  color: rgba(248,244,237,0.38);
-  font-style: italic;
-}
+.footer__photo-credits { font-size: 0.78rem; line-height: 1.7; color: rgba(248,244,237,0.38); font-style: italic; }
 
 .footer__copy { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(248,244,237,0.3); }
 
@@ -385,7 +264,6 @@ ul { list-style: none; }
   .sec-split { flex-direction: column; min-height: auto; }
   .sec-about { min-height: auto; }
 
-  /* Default image panel */
   .sec-split__img { flex: none; width: 100%; height: 75vw; min-height: 300px; max-height: 420px; }
   .sec-split__img img { object-position: center center; }
   .sec-split__img--face img { object-position: center 20%; }
@@ -394,28 +272,24 @@ ul { list-style: none; }
   #practice .sec-split__img { height: 95vw; min-height: 380px; max-height: none; }
   #practice .sec-split__img img { object-position: center top; }
 
-  /* About — tall enough to show sitting woman with long legs, face is focus */
+  /* About — tall enough for sitting woman, face as focal point, feet visible */
   #about .sec-split__img { height: 130vw; min-height: 500px; max-height: none; }
-  #about .sec-split__img img { object-position: center 38%; }
+  #about .sec-split__img img { object-position: center 55%; }
 
   .sec-split__text { flex: none; width: 100%; padding: 48px 28px; }
   .sec-split--reverse .sec-split__text { order: 2; }
   .sec-split--reverse .sec-split__img  { order: 1; }
 
-  /* Retreats — image full width, no color bars, text below on philosophy bg */
+  /* Retreats */
   .sec-fullwidth { height: auto; display: flex; flex-direction: column; }
-  .sec-fullwidth__img {
-    position: relative; width: 100%; height: 70vw; min-height: 300px;
-    object-fit: cover; object-position: center 30%;
-  }
+  .sec-fullwidth__img { position: relative; width: 100%; height: 70vw; min-height: 300px; object-fit: cover; object-position: center 30%; }
   .sec-fullwidth__overlay { display: none; }
-  .sec-fullwidth__text {
-    position: relative; top: auto; left: auto; right: auto; transform: none;
-    max-width: 100%; width: 100%; background: var(--philosophy-bg);
-    padding: 48px 28px; text-align: left;
-  }
+  .sec-fullwidth__text { position: relative; top: auto; left: auto; right: auto; transform: none; max-width: 100%; width: 100%; background: var(--philosophy-bg); padding: 48px 28px; text-align: left; }
 
-  /* Connect — full width centered, good font sizes */
+  /* Philosophy tags centered on mobile too */
+  #philosophy .tags { justify-content: center; text-align: center; }
+
+  /* Connect */
   .sec-contact { padding: 64px 28px; }
   .contact-title { font-size: clamp(2.2rem, 8vw, 3.2rem) !important; }
   .contact-body  { font-size: 1.05rem !important; }
@@ -442,8 +316,8 @@ ul { list-style: none; }
   /* Footer — logo above text on mobile */
   .footer__top { flex-direction: column; }
   .footer__nav { gap: 14px 24px; }
-  .footer__bottom-row { flex-direction: column; align-items: center; gap: 20px; }
-  .footer__logo-img { width: 70px; }
+  .footer__bottom-row { flex-direction: column; align-items: center; gap: 16px; }
+  .footer__logo-img { width: 40px; }
   .footer__bottom-text { text-align: center; }
   .footer__photo-credits { font-size: 0.75rem; }
 }
