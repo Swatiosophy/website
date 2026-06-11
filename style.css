@@ -98,27 +98,25 @@ ul { list-style: none; }
 @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
 /* ============================================================
-   SECTION DIVIDER — pink centre, fades to gold then white at edges
-   No dark colours anywhere
+   SECTION DIVIDER — pink centre, fades to gold then transparent
+   No mask, no dark colours
    ============================================================ */
 .sec-divider {
   width: 100%;
   height: 20px;
-  /* Pink in the middle, gold transitioning to near-white at the very edges */
   background: linear-gradient(
     to right,
-    rgba(255,255,255,0.0) 0%,
-    var(--gold)           8%,
-    var(--rose)           25%,
-    var(--rose)           75%,
-    var(--gold)           92%,
-    rgba(255,255,255,0.0) 100%
+    transparent    0%,
+    var(--gold)    10%,
+    var(--rose)    28%,
+    var(--rose)    72%,
+    var(--gold)    90%,
+    transparent    100%
   );
-  /* Soft glow — warm pink+gold light, no dark shadow */
   box-shadow:
-    0 -8px 24px rgba(212, 168, 75,  0.28),
-    0  8px 24px rgba(212, 168, 75,  0.28),
-    0  0   36px rgba(196,  96, 122, 0.22);
+    0 -8px 24px rgba(212, 168, 75,  0.25),
+    0  8px 24px rgba(212, 168, 75,  0.25),
+    0  0   36px rgba(196,  96, 122, 0.2);
   position: relative;
   z-index: 1;
   border: none;
@@ -145,8 +143,6 @@ ul { list-style: none; }
 .sec-split__img--bg-philosophy { background: var(--philosophy-bg); }
 
 .sec-split__img--face img { object-fit: cover; object-position: center 15%; }
-
-/* About photo: face at ~55% from top of portrait image, feet near bottom */
 .sec-split__img--body img { object-fit: cover; object-position: center 55%; }
 
 /* About section taller so the full portrait shows */
@@ -193,18 +189,12 @@ ul { list-style: none; }
 .sec-contact .contact-links { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; margin-top: 36px; }
 
 /* ============================================================
-   TAGS — italic serif, ◆ diamonds, centered in philosophy & connect
+   TAGS — italic serif, ◆ diamonds, no boxes
    ============================================================ */
 .tags { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; row-gap: 12px; margin-top: 24px; }
-
-/* Philosophy tags — centered */
-#philosophy .tags { justify-content: center; text-align: center; }
-
-/* Connect tags — centered */
+#philosophy .tags { justify-content: center; }
 .sec-contact .tags { justify-content: center; }
-
 .tag { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; font-weight: 400; letter-spacing: 0.03em; color: rgba(212,168,75,0.85); padding: 0; border: none; background: transparent; cursor: default; white-space: nowrap; }
-
 .tag + .tag::before { content: '◆'; display: inline-block; font-style: normal; font-size: 0.5rem; color: var(--gold); opacity: 0.65; margin: 0 12px; vertical-align: middle; }
 
 /* ============================================================
@@ -235,19 +225,12 @@ ul { list-style: none; }
 .footer__nav a { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: rgba(248,244,237,0.55); transition: color 0.2s; }
 .footer__nav a:hover { color: var(--gold); }
 
-/* Logo stamp + text row */
+/* Logo stamp (80px) + disclaimer + credits */
 .footer__bottom-row { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 32px; }
-
-/* Small 40px stamp logo */
-.footer__logo-img { width: 40px; height: auto; flex-shrink: 0; mix-blend-mode: screen; opacity: 0.85; margin-top: 2px; }
-
+.footer__logo-img { width: 80px; height: auto; flex-shrink: 0; mix-blend-mode: screen; opacity: 0.85; margin-top: 2px; }
 .footer__bottom-text { display: flex; flex-direction: column; gap: 12px; flex: 1; }
-
 .footer__disclaimer { font-size: 0.9rem; line-height: 1.75; color: rgba(248,244,237,0.5); }
-
-/* Photo credits — italic, smaller */
 .footer__photo-credits { font-size: 0.78rem; line-height: 1.7; color: rgba(248,244,237,0.38); font-style: italic; }
-
 .footer__copy { font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(248,244,237,0.3); }
 
 /* ============================================================
@@ -268,11 +251,9 @@ ul { list-style: none; }
   .sec-split__img img { object-position: center center; }
   .sec-split__img--face img { object-position: center 20%; }
 
-  /* Practice */
   #practice .sec-split__img { height: 95vw; min-height: 380px; max-height: none; }
   #practice .sec-split__img img { object-position: center top; }
 
-  /* About — tall enough for sitting woman, face as focal point, feet visible */
   #about .sec-split__img { height: 130vw; min-height: 500px; max-height: none; }
   #about .sec-split__img img { object-position: center 55%; }
 
@@ -280,16 +261,13 @@ ul { list-style: none; }
   .sec-split--reverse .sec-split__text { order: 2; }
   .sec-split--reverse .sec-split__img  { order: 1; }
 
-  /* Retreats */
   .sec-fullwidth { height: auto; display: flex; flex-direction: column; }
   .sec-fullwidth__img { position: relative; width: 100%; height: 70vw; min-height: 300px; object-fit: cover; object-position: center 30%; }
   .sec-fullwidth__overlay { display: none; }
   .sec-fullwidth__text { position: relative; top: auto; left: auto; right: auto; transform: none; max-width: 100%; width: 100%; background: var(--philosophy-bg); padding: 48px 28px; text-align: left; }
 
-  /* Philosophy tags centered on mobile too */
-  #philosophy .tags { justify-content: center; text-align: center; }
+  #philosophy .tags { justify-content: center; }
 
-  /* Connect */
   .sec-contact { padding: 64px 28px; }
   .contact-title { font-size: clamp(2.2rem, 8vw, 3.2rem) !important; }
   .contact-body  { font-size: 1.05rem !important; }
@@ -297,7 +275,6 @@ ul { list-style: none; }
   .sec-contact .contact-links .btn { text-align: center; }
   .tag { font-size: 1rem; }
 
-  /* Nav */
   .nav__links { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: rgba(26,10,20,0.98); flex-direction: column; gap: 0; padding: 16px 0 32px; }
   .nav__links.is-open { display: flex; }
   .nav__links li { width: 100%; }
@@ -305,19 +282,19 @@ ul { list-style: none; }
   .nav__cta { margin: 16px 32px 0 !important; padding: 12px 20px !important; text-align: center; border: 1px solid var(--gold) !important; }
   .nav__toggle { display: flex; }
 
-  /* Hero */
   .sec-hero__text { left: 24px; right: 24px; max-width: 100%; }
   .sec-hero__img { object-position: 70% center; }
   .sec-hero__overlay { background: rgba(26,10,20,0.65); }
 
-  /* Pillars */
   .pillars { grid-template-columns: 1fr 1fr; gap: 12px; }
 
-  /* Footer — logo above text on mobile */
+  .contact-links { align-items: stretch; }
+  .contact-links .btn { text-align: center; }
+
   .footer__top { flex-direction: column; }
   .footer__nav { gap: 14px 24px; }
   .footer__bottom-row { flex-direction: column; align-items: center; gap: 16px; }
-  .footer__logo-img { width: 40px; }
+  .footer__logo-img { width: 80px; }
   .footer__bottom-text { text-align: center; }
   .footer__photo-credits { font-size: 0.75rem; }
 }
