@@ -104,14 +104,14 @@ ul { list-style: none; }
 .sec-divider {
   width: 100%;
   height: 20px;
-  background: linear-gradient(
+background: linear-gradient(
     to right,
-    transparent    0%,
+    #ffffff    0%,
     var(--gold)    10%,
     var(--rose)    28%,
     var(--rose)    72%,
     var(--gold)    90%,
-    transparent    100%
+    #ffffff    100%
   );
   box-shadow:
     0 -8px 24px rgba(212, 168, 75,  0.25),
